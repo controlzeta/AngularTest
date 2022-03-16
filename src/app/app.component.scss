@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2) format('woff2');
+}
+
+html, body, div, h1, h2, h3, label, p{
+    font-family: 'Roboto', sans-serif !important;
+    font-style: normal;
+}
+button{
+    font-family: 'Roboto', sans-serif;
+    padding: 4px;
+    margin: 8px;
+}
+
+ul {
+    list-style-type: none;
+    font-family: 'Roboto', sans-serif;
+}
+
 .box{
     height: 200px;
     width: 200px;

@@ -1,19 +1,33 @@
 <div>
   <form>
-  <img src={{imageSrc}} alt={{name}}>
-  <h1>{{name}}</h1>
-  <h2>{{charge}}</h2>
-  
-  <div>
-    Name:<input type="number" #nameInput="ngModel" [(ngModel)]="progressBar" >
-    <p style="color:red;">Valid {{nameInput.valid}}</p>
-  </div>
-  <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
-  <button (click)="toggleButton()">Toggle</button>
-  <progress max="100" value={{progressBar}}></progress><label>{{progressBar}}%</label>
-  <a target="_blank" href={{imageSrc}}>Link</a>
-  <div class="box" (scroll)="onScroll($event)">
-    <p>{{description}}</p>
-  </div>
-</form>
+    <img src={{imageSrc}} alt={{name}}>
+    <h1>{{name}}</h1>
+    <h2>{{charge}}</h2>
+
+    <div>
+      Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name">
+      <p style="color:red;">Valid {{inputName.valid}}</p>
+    </div>
+    <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
+    <button (click)="toggleButton()">Toggle</button>
+    <div *ngIf="show">
+      <progress max="100" value={{progressBar}}></progress><label>{{progressBar}}%</label>
+      <a target="_blank" href={{imageSrc}}>Link</a>
+      <div class="box" (scroll)="onScroll($event)">
+        <p>{{description}}</p>
+      </div>
+    </div>
+    <div *ngIf="technologies" >
+      <h2>Tecnologías</h2>
+      <ul>
+        <li *ngIf="technologies.length == 0">Ya no sabes ninguna tecnología</li>
+        <li *ngFor="let t of technologies; index as i">
+          <label>{{i}}.- {{t.utilerias}}</label>
+          <button (click)="deleteTech(i)">Delete Tech</button>
+        </li>
+      </ul>
+      <button (click)="addTech()">Add Tech</button>
+      <input #inputNewTech="ngModel" name="inputNewTech" [(ngModel)]="newTech" required type="text" />
+    </div>
+  </form>  
 </div>
