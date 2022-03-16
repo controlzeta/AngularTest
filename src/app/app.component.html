@@ -1,33 +1,68 @@
-<div>
+<div class="container-fluid">
   <form>
-    <img src={{imageSrc}} alt={{name}}>
-    <h1>{{name}}</h1>
-    <h2>{{charge}}</h2>
-
-    <div>
-      Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name">
-      <p style="color:red;">Valid {{inputName.valid}}</p>
-    </div>
-    <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
-    <button (click)="toggleButton()">Toggle</button>
-    <div *ngIf="show">
-      <progress max="100" value={{progressBar}}></progress><label>{{progressBar}}%</label>
-      <a target="_blank" href={{imageSrc}}>Link</a>
-      <div class="box" (scroll)="onScroll($event)">
-        <p>{{description}}</p>
+    <div class="row">
+      <div class="col-3">
+        <img src={{imageSrc}} class="card-img rounded mx-auto d-block" alt={{name}}>
+        <h1 class="text-center">{{name}}</h1>
+        <h2 class="text-center">{{charge}}</h2>
+        <p class="text-md-start">{{description}}</p>
+        <div id="stack">
+          <div class="row">
+            <h2 class="text-center">Stack</h2>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <img src="https://controlzeta.github.io/img/c_sharp_logo.png">
+            </div>
+            <div class="col-3">
+              <img src="https://controlzeta.github.io/img/iis_logo.png">
+            </div>
+          </div>
+        </div>
+        <div id="Courses">
+          <div class="row">
+            <h2 class="text-center">Courses And Certifications</h2>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <img src="https://controlzeta.github.io/img/logo-platzi.jpg">
+            </div>
+            <div class="col-3">
+              <img src="https://controlzeta.github.io/img/logo-cisco.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <div>
+          Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name">
+          <p style="color:red;">Valid {{inputName.valid}}</p>
+        </div>
+        <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
+        <button (click)="toggleButton()">Toggle</button>
+        <div *ngIf="show">
+          <progress max="100" value={{progressBar}}></progress><label>{{progressBar}}%</label>
+          <a target="_blank" href={{imageSrc}}>Link</a>
+          <div class="box" (scroll)="onScroll($event)">
+            <p>{{description}}</p>
+          </div>
+        </div>
+        <div *ngIf="technologies">
+          <h2>Tecnologías</h2>
+          <ul>
+            <li *ngIf="technologies.length == 0">Ya no sabes ninguna tecnología</li>
+            <li *ngFor="let t of technologies; index as i">
+              <label>{{i}}.- {{t.utilerias}}</label>
+              <button (click)="deleteTech(i)">Delete Tech</button>
+            </li>
+          </ul>
+          <button (click)="addTech()">Add Tech</button>
+          <input #inputNewTech="ngModel" name="inputNewTech" [(ngModel)]="newTech" required type="text" />
+        </div>
       </div>
     </div>
-    <div *ngIf="technologies" >
-      <h2>Tecnologías</h2>
-      <ul>
-        <li *ngIf="technologies.length == 0">Ya no sabes ninguna tecnología</li>
-        <li *ngFor="let t of technologies; index as i">
-          <label>{{i}}.- {{t.utilerias}}</label>
-          <button (click)="deleteTech(i)">Delete Tech</button>
-        </li>
-      </ul>
-      <button (click)="addTech()">Add Tech</button>
-      <input #inputNewTech="ngModel" name="inputNewTech" [(ngModel)]="newTech" required type="text" />
+    <div class="footer">
+      <p class="text-center">{{charge}} | {{name}} {{year}} </p>
     </div>
-  </form>  
+  </form>
 </div>
