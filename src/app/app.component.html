@@ -2,7 +2,15 @@
   <img src={{imageSrc}} alt={{name}}>
   <h1>{{name}}</h1>
   <h2>{{charge}}</h2>
-  <input type="text" value={{name}}><button disabled={{btnDisabled}}>Boton</button>
-  <progress max="100" value={{progressBar}}></progress>
+  
+  <div>
+    Name:<input type="text" value={{name}} (keyup)="onKeyUp($event)">
+  </div>
+  <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
+  <button (click)="toggleButton()">Toggle</button>
+  <progress max="100" value={{progressBar}}></progress><label>{{progressBar}}%</label>
   <a target="_blank" href={{imageSrc}}>Link</a>
+  <div class="box" (scroll)="onScroll($event)">
+    <p>{{description}}</p>
+  </div>
 </div>
