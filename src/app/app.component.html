@@ -1,10 +1,12 @@
 <div>
+  <form>
   <img src={{imageSrc}} alt={{name}}>
   <h1>{{name}}</h1>
   <h2>{{charge}}</h2>
   
   <div>
-    Name:<input type="text" value={{name}} (keyup)="onKeyUp($event)">
+    Name:<input type="number" #nameInput="ngModel" [(ngModel)]="progressBar" >
+    <p style="color:red;">Valid {{nameInput.valid}}</p>
   </div>
   <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
   <button (click)="toggleButton()">Toggle</button>
@@ -13,4 +15,5 @@
   <div class="box" (scroll)="onScroll($event)">
     <p>{{description}}</p>
   </div>
+</form>
 </div>
