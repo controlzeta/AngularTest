@@ -38,6 +38,17 @@
         <div>
           Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name">
           <p style="color:red;">Valid {{inputName.valid}}</p>
+          <div [ngSwitch]="name">
+            <p *ngSwitchCase="'Francisco Arroyo'">
+              La persona es mi tocaya
+            </p>
+            <p *ngSwitchCase="'Pako Arroyo'">
+              Te llamas igual que yo
+            </p>
+            <p *ngSwitchDefault>
+              Es un desconocido
+            </p>
+          </div>
         </div>
         <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
         <button (click)="toggleButton()">Toggle</button>
