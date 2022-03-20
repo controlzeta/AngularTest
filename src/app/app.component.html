@@ -34,6 +34,7 @@
         </div>
       </div>
       <div class="col-9">
+        <div class="container">
         <div>
           Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name">
           <p style="color:red;">Valid {{inputName.valid}}</p>
@@ -49,15 +50,30 @@
         </div>
         <div *ngIf="technologies">
           <h2>Tecnologías</h2>
+          <table id="tbTecnologias">
+            <thead>
+              <th></th>
+              <th>Tools</th>
+              <th>Level</th>
+              <th></th>
+            </thead>
+            <tbody *ngFor="let t of technologies; index as i" >
+              <td>{{t.ramo}}</td>
+              <td>{{t.utilerias}}</td>
+              <td>{{t.nivel}}</td>
+              <td><button (click)="deleteTech(i)">Delete Tech</button></td>
+            </tbody>
+          </table>
           <ul>
             <li *ngIf="technologies.length == 0">Ya no sabes ninguna tecnología</li>
             <li *ngFor="let t of technologies; index as i">
-              <label>{{i}}.- {{t.utilerias}}</label>
+              <label>{{i}}.- {{t.ramo}} | {{t.nivel}} | {{t.utilerias}}</label>
               <button (click)="deleteTech(i)">Delete Tech</button>
             </li>
           </ul>
           <button (click)="addTech()">Add Tech</button>
           <input #inputNewTech="ngModel" name="inputNewTech" [(ngModel)]="newTech" required type="text" />
+        </div>
         </div>
       </div>
     </div>
