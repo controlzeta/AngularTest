@@ -25,7 +25,7 @@
           </div>
           <div class="row">
             <div class="col-3">
-              <img src="https://controlzeta.github.io/img/logo-platzi.jpg">
+              <img [style.height]="inputName.valid ? '100px' : '200px'" src="https://controlzeta.github.io/img/logo-platzi.jpg">
             </div>
             <div class="col-3">
               <img src="https://controlzeta.github.io/img/logo-cisco.jpg">
@@ -35,9 +35,9 @@
       </div>
       <div class="col-9">
         <div class="container">
-        <div>
-          Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name">
-          <p style="color:red;">Valid {{inputName.valid}}</p>
+        <div class="col">
+          Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name" required>
+          <p class="message-error" name="defaultSwitch" [class.invalid]="!inputName.valid">El nombre es requerido</p>
           <div [ngSwitch]="name">
             <p *ngSwitchCase="'Francisco Arroyo'">
               La persona es mi tocaya
@@ -45,7 +45,7 @@
             <p *ngSwitchCase="'Pako Arroyo'">
               Te llamas igual que yo
             </p>
-            <p *ngSwitchDefault>
+            <p *ngSwitchDefault >
               Es un desconocido
             </p>
           </div>
@@ -61,19 +61,21 @@
         </div>
         <div *ngIf="technologies">
           <h2>Tecnologías</h2>
-          <table id="tbTecnologias">
+          <table class="table table-striped table-hover" id="tbTecnologias">
             <thead>
               <th></th>
-              <th>Tools</th>
-              <th>Level</th>
-              <th></th>
+              <th class="text-center">Tools</th>
+              <th class="text-center">Level</th>
+              <th class="text-center">Action</th>
             </thead>
-            <tbody *ngFor="let t of technologies; index as i" >
+            <tbody>
+            <tr *ngFor="let t of technologies; index as i" >
               <td>{{t.ramo}}</td>
               <td>{{t.utilerias}}</td>
               <td>{{t.nivel}}</td>
-              <td><button (click)="deleteTech(i)">Delete Tech</button></td>
-            </tbody>
+              <td><button class="btn" (click)="deleteTech(i)">Borrar</button></td>
+            </tr>
+          </tbody>
           </table>
           <ul>
             <li *ngIf="technologies.length == 0">Ya no sabes ninguna tecnología</li>

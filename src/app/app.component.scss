@@ -36,6 +36,16 @@ ul {
 }
 
 .card-img {
-    height: 500px;
+    height: 20%;
     width: auto;
+}
+.message-error{
+    background-color: red;
+    color:white;
+    font-weight: bold;
+    opacity: 0;
+    &.invalid{
+        transition: all linear 1s;
+        opacity: 1;
+    }
 }
