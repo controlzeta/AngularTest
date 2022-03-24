@@ -49,3 +49,24 @@ ul {
         opacity: 1;
     }
 }
+
+.line-error{
+    height: 0;
+    border-bottom: 1px solid;
+    transition: all linear 1s;
+    &.invalid{
+        color: red;
+        border-bottom: 2px solid;
+    }
+    &.valid{
+        color:blue;
+    }
+}
+
+.input-group{
+    padding: 12px;
+}
+
+.input-group label{
+    padding: 12px;
+}

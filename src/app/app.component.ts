@@ -37,6 +37,8 @@ export class AppComponent {
 		{ ramo : "SEO en Google", nivel : "Avanzado", utilerias : "Analytics, Google My Business" }
 	];
 
+    register = { name:'', email: '', password : ''}
+
   // technologies : string[] = ["C#, ASP, ASP.Net, Visual Basic, Html5", "SQL Server 2014, Postgres, MySQL, Oracle 11g", "Visual Studio 2012, Visual Studio 2013, Visual Studio 2015" ]
 
   btnDisabled = true;
@@ -76,5 +78,9 @@ export class AppComponent {
 
   deleteTech(index:number){
     this.technologies.splice(index,1);
+  }
+
+  onRegister(){
+    console.log(this.register);
   }
 }

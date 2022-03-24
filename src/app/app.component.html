@@ -1,11 +1,15 @@
-<div class="container-fluid">
-  <form>
+<div class="container-fluid" style="display:none;">
+  <!-- <form> -->
     <div class="row">
       <div class="col-3">
         <img src={{imageSrc}} class="card-img rounded mx-auto d-block" alt={{name}}>
         <h1 class="text-center">{{name}}</h1>
         <h2 class="text-center">{{charge}}</h2>
         <p class="text-md-start">{{description}}</p>
+        <div class="line-error" [ngClass]="{
+          'valid' : inputName.valid,
+          'invalid': !inputName.valid
+        }" ></div>
         <div id="stack">
           <div class="row">
             <h2 class="text-center">Stack</h2>
@@ -93,5 +97,27 @@
     <div class="footer">
       <p class="text-center">{{charge}} | {{name}} {{year}} </p>
     </div>
-  </form>
+  <!-- </form> -->
+</div>
+<div class="container">
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #MyForm="ngForm">
+  <div class="input-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="registerName" required [(ngModel)]="register.name" class="form-control" />
+    <p></p>
+  </div>
+  <div class="input-group">
+    <label for="name">Email:</label>
+    <input type="email" id="email" name="registerEmail" required [(ngModel)]="register.email" class="form-control" />
+  </div> 
+  <div class="input-group">
+    <label for="password">Password:</label>
+    <input type="password" id="name" name="registerPassword" required [(ngModel)]="register.password" class="form-control" />
+  </div>
+  <div>
+    <button type="submit" [disabled]="MyForm.invalid" class="btn btn-primary" >Registrar</button>
+    <button type="button" class="btn btn-secondary" >Otro Botón</button>
+  </div>
+</form>
 </div>
