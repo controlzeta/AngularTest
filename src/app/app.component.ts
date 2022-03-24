@@ -21,6 +21,11 @@ export class AppComponent {
   description: string = "I'm a Fullstack .Net Developer focused on C# for its hardiness, scalability and interoperability with other systems, I have also worked with PHP, Angular JS and VB making improvements, migrations and repairs of existing systems. I'm able to work in teams, remotely or on site.' I love to keep me updated on new hardware and software solutions, either through online courses, lectures, attend to webinars, read blogs or classroom courses is always better to know what new technologies you can take for your work.";
   newTech: string = 'AngularJs';
   year: number = new Date().getFullYear();
+  links: Array<any> = [
+    {href : 'https://www.linkedin.com/in/francisco-arroyo-83351727/', class:'fa fa-linkedin fa-stack-1x fa-inverse', color:' #006ba3', text: 'linkedin.com/francisco-arroyo'},
+    {href : 'https://github.com/controlzeta', class:'fa fa-github fa-stack-1x fa-inverse', color:'#000000', text: 'github.com/controlzeta'},
+    {href : 'https://pakoarroyo.controlzeta.com.mx/portfolio.html', class:'fa fa-briefcase fa-stack-1x fa-inverse', color:'#ff0000', text: 'portfolio'}
+  ]
   technologies: Array<technologiesModel> = [
 		{ ramo : "Programación", nivel : "Avanzado", utilerias : "C#, ASP, ASP.Net, Visual Basic, Html5" },
 		{ ramo : "Bases de Datos", nivel : "Avanzado", utilerias : "SQL Server 2014, Postgres, MySQL, Oracle 11g" },
@@ -60,8 +65,8 @@ export class AppComponent {
   }
 
   onScroll(event : Event){
-    
-    const element = event.target as HTMLElement; 
+
+    const element = event.target as HTMLElement;
     this.progressBar = element.scrollTop;
   }
 
