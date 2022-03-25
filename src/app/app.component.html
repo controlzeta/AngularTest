@@ -5,7 +5,19 @@
         <img src={{imageSrc}} class="card-img rounded mx-auto d-block" alt={{name}}>
         <h1 class="text-center">{{name}}</h1>
         <h2 class="text-center">{{charge}}</h2>
-        <p class="text-md-start">{{description}}</p>
+        <div class="container">
+          <p class="text-md-start">{{description}}</p>
+        </div>
+        <div id="links">
+          <div *ngFor="let l of links; index as i" class="col-md-12" style="margin-left:12px;">
+            <a target="_blank" rel="noopener" href={{l.href}} [style.color]="l.color" >
+              <span class="fa-stack fa-lg" [style.margin-right.px]="4">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class={{l.class}}></i>
+              </span>{{l.text}}
+            </a>
+          </div>
+        </div>
         <div class="line-error" [ngClass]="{
           'valid' : inputName.valid,
           'invalid': !inputName.valid
@@ -110,7 +122,7 @@
   <div class="input-group">
     <label for="name">Email:</label>
     <input type="email" id="email" name="registerEmail" required [(ngModel)]="register.email" class="form-control" />
-  </div> 
+  </div>
   <div class="input-group">
     <label for="password">Password:</label>
     <input type="password" id="name" name="registerPassword" required [(ngModel)]="register.password" class="form-control" />
