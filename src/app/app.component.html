@@ -1,78 +1,114 @@
 <div class="container-fluid">
   <!-- <form> -->
-    <div class="row">
-      <div class="col-3">
-        <img src={{imageSrc}} class="card-img rounded mx-auto d-block" alt={{name}}>
-        <h1 class="text-center">{{name}}</h1>
-        <h2 class="text-center">{{charge}}</h2>
-        <div class="container">
-          <p class="text-md-start">{{description}}</p>
-        </div>
-        <div id="links">
-          <div *ngFor="let l of links; index as i" class="col-md-12" style="margin-left:12px;">
-            <a target="_blank" rel="noopener" href={{l.href}} [style.color]="l.color" >
-              <span class="fa-stack fa-lg" [style.margin-right.px]="4">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class={{l.class}}></i>
-              </span>{{l.text}}
-            </a>
-          </div>
-        </div>
-        <div class="line-error" [ngClass]="{
-          'valid' : inputName.valid,
-          'invalid': !inputName.valid
-        }" ></div>
-        <div id="stack">
-          <div class="row">
-            <h2 class="text-center">Stack</h2>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              <img src="https://controlzeta.github.io/img/c_sharp_logo.png">
-            </div>
-            <div class="col-3">
-              <img src="https://controlzeta.github.io/img/iis_logo.png">
-            </div>
-          </div>
-        </div>
-        <div id="Courses">
-          <div class="row">
-            <h2 class="text-center">Courses And Certifications</h2>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              <img [style.height]="inputName.valid ? '100px' : '200px'" src="https://controlzeta.github.io/img/logo-platzi.jpg">
-            </div>
-            <div class="col-3">
-              <img src="https://controlzeta.github.io/img/logo-cisco.jpg">
-            </div>
-          </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-3 col-xs-12">
+      <img
+        src="{{ imageSrc }}"
+        class="card-img rounded mx-auto d-block"
+        alt="{{ name }}"
+      />
+      <h1 class="text-center">{{ name }}</h1>
+      <h2 class="text-center">{{ charge }}</h2>
+      <div class="container">
+        <p class="text-md-start">{{ description }}</p>
+      </div>
+      <div id="links">
+        <div
+          *ngFor="let l of links; index as i"
+          class="col-md-12"
+          style="margin-left: 12px"
+        >
+          <a
+            target="_blank"
+            rel="noopener"
+            href="{{ l.href }}"
+            [style.color]="l.color"
+          >
+            <span class="fa-stack fa-lg" [style.margin-right.px]="4">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="{{ l.class }}"></i> </span
+            >{{ l.text }}
+          </a>
         </div>
       </div>
-      <div class="col-9">
-        <div class="container">
+      <div
+        class="line-error"
+        [ngClass]="{
+          valid: inputName.valid,
+          invalid: !inputName.valid
+        }"
+      ></div>
+      <div id="stack">
+        <div class="row">
+          <h2 class="text-center">Stack</h2>
+        </div>
+        <div class="row">
+          <div *ngFor="let t of stack; index as i" class="col-3">
+          <img src={{t.src}} alt={{t.alt}} class="stack" />
+          </div>  
+        </div>
+      </div>
+      <div id="Courses">
+        <div class="row">
+          <h2 class="text-center">Courses And Certifications</h2>
+        </div>
+        <div class="row">
+          <div *ngFor="let t of coursesAndCerts; index as i" class="col-3">
+            <img src={{t.src}} alt={{t.alt}} class="stack" />
+            </div>  
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-9 col-xs-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-10"></div>
+          <div class="col" style="text-align: right">
+            <img
+              src="../assets/img/mexico.png"
+              (click)="changeLanguage('Spanish')"
+              alt="spanish"
+              style="height: 32px; width: auto; text-align: right"
+            />
+          </div>
+          <div class="col">
+            <img
+              src="../assets/img/english.png"
+              (click)="changeLanguage('English')"
+              alt="english"
+              style="height: 32px; width: auto; text-align: right"
+            />
+          </div>
+        </div>
         <div class="col">
-          Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name" required>
-          <p class="message-error" name="defaultSwitch" [class.invalid]="!inputName.valid">El nombre es requerido</p>
+          Name:<input
+            type="text"
+            name="name"
+            #inputName="ngModel"
+            [(ngModel)]="name"
+            required
+          />
+          <p
+            class="message-error"
+            name="defaultSwitch"
+            [class.invalid]="!inputName.valid"
+          >
+            El nombre es requerido
+          </p>
           <div [ngSwitch]="name">
-            <p *ngSwitchCase="'Francisco Arroyo'">
-              La persona es mi tocaya
-            </p>
-            <p *ngSwitchCase="'Pako Arroyo'">
-              Te llamas igual que yo
-            </p>
-            <p *ngSwitchDefault >
-              Es un desconocido
-            </p>
+            <p *ngSwitchCase="'Francisco Arroyo'">La persona es mi tocaya</p>
+            <p *ngSwitchCase="'Pako Arroyo'">Te llamas igual que yo</p>
+            <p *ngSwitchDefault>Es un desconocido</p>
           </div>
         </div>
         <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
         <button (click)="toggleButton()">Toggle</button>
         <div *ngIf="show">
-          <progress max="100" value={{progressBar}}></progress><label>{{progressBar}}%</label>
-          <a target="_blank" href={{imageSrc}}>Link</a>
+          <progress max="100" value="{{ progressBar }}"></progress
+          ><label>{{ progressBar }}%</label>
+          <a target="_blank" href="{{ imageSrc }}">Link</a>
           <div class="box" (scroll)="onScroll($event)">
-            <p>{{description}}</p>
+            <p>{{ description }}</p>
           </div>
         </div>
         <div *ngIf="technologies">
@@ -85,51 +121,97 @@
               <th class="text-center">Action</th>
             </thead>
             <tbody>
-            <tr *ngFor="let t of technologies; index as i" >
-              <td>{{t.ramo}}</td>
-              <td>{{t.utilerias}}</td>
-              <td>{{t.nivel}}</td>
-              <td><button class="btn" (click)="deleteTech(i)">Borrar</button></td>
-            </tr>
-          </tbody>
+              <tr *ngFor="let t of technologies; index as i">
+                <td>{{ t.ramo }}</td>
+                <td>{{ t.utilerias }}</td>
+                <td>{{ t.nivel }}</td>
+                <td>
+                  <button class="btn" (click)="deleteTech(i)">Borrar</button>
+                </td>
+              </tr>
+            </tbody>
           </table>
           <ul>
-            <li *ngIf="technologies.length == 0">Ya no sabes ninguna tecnología</li>
+            <li *ngIf="technologies.length == 0">
+              Ya no sabes ninguna tecnología
+            </li>
             <li *ngFor="let t of technologies; index as i">
-              <label>{{i}}.- {{t.ramo}} | {{t.nivel}} | {{t.utilerias}}</label>
+              <label
+                >{{ i }}.- {{ t.ramo }} | {{ t.nivel }} |
+                {{ t.utilerias }}</label
+              >
               <button (click)="deleteTech(i)">Delete Tech</button>
             </li>
           </ul>
           <button (click)="addTech()">Add Tech</button>
-          <input #inputNewTech="ngModel" name="inputNewTech" [(ngModel)]="newTech" required type="text" />
-        </div>
+          <input
+            #inputNewTech="ngModel"
+            name="inputNewTech"
+            [(ngModel)]="newTech"
+            required
+            type="text"
+          />
         </div>
       </div>
     </div>
-    <div class="footer">
-      <p class="text-center">{{charge}} | {{name}} {{year}} </p>
+  </div>
+  <div id="Clientes" class="row">
+    <h2>Testimonials</h2>
+    <div *ngFor="let c of info.clientes; index as i" class="col-3">
+      <div class="p-3">
+        <h3>{{ c.nombre }}</h3>
+        <p>{{ c.testimonio }}</p>
+        <img src="{{ c.imagen }}" style="width: 100px; height: auto" />
+      </div>
     </div>
+  </div>
+  <div class="footer">
+    <p class="text-center">{{ charge }} | {{ name }} {{ year }}</p>
+  </div>
   <!-- </form> -->
 </div>
 <div class="container" style="display:none;">
-<h1>Formulario</h1>
-<form (ngSubmit)="onRegister()" #MyForm="ngForm">
-  <div class="input-group">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="registerName" required [(ngModel)]="register.name" class="form-control" />
-    <p></p>
-  </div>
-  <div class="input-group">
-    <label for="name">Email:</label>
-    <input type="email" id="email" name="registerEmail" required [(ngModel)]="register.email" class="form-control" />
-  </div>
-  <div class="input-group">
-    <label for="password">Password:</label>
-    <input type="password" id="name" name="registerPassword" required [(ngModel)]="register.password" class="form-control" />
-  </div>
-  <div>
-    <button type="submit" [disabled]="MyForm.invalid" class="btn btn-primary" >Registrar</button>
-    <button type="button" class="btn btn-secondary" >Otro Botón</button>
-  </div>
-</form>
+  <h1>Formulario</h1>
+  <form (ngSubmit)="onRegister()" #MyForm="ngForm">
+    <div class="input-group">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="registerName"
+        required
+        [(ngModel)]="register.name"
+        class="form-control"
+      />
+      <p></p>
+    </div>
+    <div class="input-group">
+      <label for="name">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="registerEmail"
+        required
+        [(ngModel)]="register.email"
+        class="form-control"
+      />
+    </div>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="name"
+        name="registerPassword"
+        required
+        [(ngModel)]="register.password"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <button type="submit" [disabled]="MyForm.invalid" class="btn btn-primary">
+        Registrar
+      </button>
+      <button type="button" class="btn btn-secondary">Otro Botón</button>
+    </div>
+  </form>
 </div>
