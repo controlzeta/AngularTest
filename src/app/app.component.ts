@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { technologiesModel } from './models/technologiesModel.model';
 import { imagesModel } from './models/imagesModel.modet';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,180 @@ export class AppComponent {
             {	nombre : "Hugo Lugo", "cargo":"Business Partner en Global Hitss", testimonio : "Francisco es una persona comprometida, profesional y proactivo, siempre dedicado y a la altura se los retos que se le presenten.", imagen: "../assets/img/consolid-logo.png"	},
             {	nombre : "Hiriam Eduardo Perez", "cargo":"Subdirector de Sistemas (INAI)", testimonio : "Francisco fue un gran colaborador a mi cargo para distintos proyectos de desarrollo de software, consultoría tecnológica e inteligencia de negocio.", imagen: "../assets/img/inai-logo.jpg"	},
             {	nombre : "Salvador Alvarado Tabuyo", "cargo":"IT Manager", testimonio : "Un excelente elemento y con una capacidad sobre el promedio.", imagen: "../assets/img/logo-chubb-2.png"	}
+          ],
+          projects : [
+              {
+              id : "01",
+              charge: "Diseño Web y Webmaster",
+              logo: "assets/img/logo-controlzeta.jpg",
+              consultant: "Freelance",
+              startDate : "Junio 2011",
+              endDate : "Actualidad",
+              dates : [{ startDate: "01/06/2011", endDate: "Today" }],
+              abstract: "Diseño, Desarrollo, Implementación y mantenimiento de páginas web para clientes finales, en CMS o HTML5 desde cero ",
+              activities: [
+                { activity: "Levantamiento  y Analísis de requerimientos" },
+                { activity: "Propuesta de Diseño (Mockups, Wireframes))"},
+                { activity: "Maquetado"},
+                { activity: "Implementación de CMS (Joomla, Wordpress), eCommerce (Prestashop y Magento) y LCMS (Moodle)"},
+                { activity: "SEO  y Google Analytics"},
+                { activity: "Creación y conexión de perfiles de Social Media"}
+                ],
+              knowledge : [
+                { knowing : "PHP", color : "purple", percentage:"60" },
+                { knowing : "HTML5", color : "red", percentage:"95" },
+                { knowing : "CMS", color : "red", percentage:"85" },
+                { knowing : "SEO", color : "green", percentage:"78" }
+              ]
+              },
+              {
+              id : "02",
+              charge : " .Net  Developer",
+              logo: "assets/img/camebra-logo.png",
+              consultant: "CAMEBRA",
+              startDate : "Abril 2011",
+              endDate : "Febrero 2013",
+              dates : [{ startDate: "01/04/2011", endDate: "01/02/2013" }],
+              abstract: "Colabore en la realización de un sistema web para ventas de productos tecnológicos en ASP.NET 4, Hojas de Estilo CSS 2.1, Jquery y Motor de Base de Datos SQL Server 2008 R2 con objetos sqlclient. También di soporte a otras aplicaciones las cuales contaban con tecnologías como: Entity Framework, Webservices y RIA Services WCF, Silverlight.",
+              activities: [
+                { activity: "Desarrollador Web" },
+                { activity: "Participación en Análisis e Implementación"},
+                { activity: "Diseño Web"},
+                { activity: "Soporte de Aplicaciones"}
+                ],
+              knowledge : 	[
+                { knowing : "ASP.NET 4", color : "purple", percentage:"60" },
+                { knowing : "CSS 2.1", color : "red", percentage:"65" },
+                { knowing : "WCF", color : "red", percentage:"65" },
+                { knowing : " Entity Framework", color : "green", percentage:"65" }
+              ]
+              },
+              {
+              id : "03",
+              charge: "Desarrollador .Net C#",
+              logo: "assets/img/inai-logo.jpg",
+              consultant: "INAI - Indra",
+              startDate : "Marzo 2013",
+              endDate : "Enero 2014",
+              dates : [{ startDate: "01/03/2013", endDate: "01/01/2014" }],
+              abstract: "Colabore en la realización de un Portal para la recepción de denuncias que incluía las tecnologías NHibernate Fluent con SQL Server 2008, en Framework ASP .NET 4.0, CSS, Ajax y JQuery, conectado a varios sistemas SAP CRM, BW-BI de SAP y Open Text como repositorio de documentos por medio de Web Service",
+              activities: [
+                { activity: "Desarrollo Web con ASP .NET" },
+                { activity: "Participación en Análisis e Implementación"},
+                { activity: "Diseño Web"},
+                { activity: "OWASP"},
+                { activity: "Integración de Sistemas mediante Web Services (SOAP y WCF)"},
+                { activity: "Soporte de Aplicaciones existentes"},
+                { activity: "Documentación MAAGTIC"}
+                ],
+              knowledge : [
+                { knowing : ".Net Framework 4.0", color : "purple", percentage:"80" },
+                { knowing : "nHibernate", color : "red", percentage:"68" },
+                { knowing : "Web Services", color : "red", percentage:"95" },
+                { knowing : "MAAGTIC", color : "green", percentage:"80" }
+              ]
+              },
+              {
+              id : "04",
+              charge: "Desarrollador MVC .Net",
+              logo: "assets/img/unifin-logo.png",
+              consultant: "Unifin Financiera",
+              startDate : "Marzo 2014",
+              endDate : "Julio 2014",
+              dates : [{ startDate: "01/03/2014", endDate: "01/07/2014" }],
+              abstract: "Colabore en la migración de la migración de un Sistema Financiero de Escritorio en Visual Basic 6.0 y 2010 a Plataforma Web con Diseño Responsivo, en arquitectura MVC en lenguaje C# que incluía las tecnologías SQL Server 2008, en Framework ASP .NET 4.0, CSS3, JSON, Bootstrap, Ajax y JQuery. Con funciones como: Cálculos financieros, lectura de archivos, empaquetado de Crystal Reports y comunicación con Dynamics.",
+              activities: [
+                { activity: "Migración VB .Net 6.0 a Web MVC C# Framework 4.0" },
+                { activity: "Participación en Análisis e Implementación"},
+                { activity: "Maquetado en Responsive Design (Bootstrap)"},
+                { activity: "jQuery, JSON, Ajax y CSS3 "},
+                { activity: "Crystal Reports"}
+                ],
+              knowledge : [
+                { knowing : ".Net Framework 4.0", color : "purple", percentage:"95" },
+                { knowing : "Jquery", color : "red", percentage:"95" },
+                { knowing : "AJAX y Json", color : "red", percentage:"80" },
+                { knowing : "Responsive Design", color : "green", percentage:"80" }
+              ]
+              },
+              {
+              id : "05",
+              charge: "Desarrollador .Net Front End",
+              logo: "assets/img/consolid-logo.png",
+              consultant: "Gonet - Consolid",
+              startDate : "Agosto 2014",
+              endDate : "Junio 2015",
+              dates : [{ startDate: "01/08/2014", endDate: "01/06/2015" }],
+              abstract: "Diseño e implementación de Administrador de Usuarios, Seguridad, Motor de Búsqueda de Vuelos (Sabre, Navitaire, Volaris), Cambio de Diseño a Responsive Design (Bootstrap), Consumo de Web Services (SOAP, WCF), Arquitectura de 3 Capas, SQL Server 2012 con Entity Framework, CSS3, jQuery.",
+              activities: [
+                { activity: "Diseño e Implementación de administrador de Usuarios" },
+                { activity: "Participación en Análisis e Implementación"},
+                { activity: "Implementación de Seguridad (Simple Membership)"},
+                { activity: "Consumo de Webservices ( Sabre, Navitaire 3.0 y 4.0 )"},
+                { activity: "Maquetado de Responsive Design Bootstrap"},
+                { activity: "jQuery, JSON, Ajax y CSS3 "}
+                ],
+              knowledge : [
+                { knowing : "Web Services", color : "purple", percentage:"95" },
+                { knowing : "Seguridad", color : "red", percentage:"95" },
+                { knowing : "Diseño Web", color : "green", percentage:"95" }
+              ]
+              },
+              {
+              id : "06",
+              charge: "Full Stack Web Developer",
+              logo: "assets/img/x1mexico-logo.png",
+              consultant: "X1 México",
+              startDate : "Junio 2015",
+              endDate : "Diciembre 2016",
+              dates : [{ startDate: "01/06/2015", endDate: "01/12/2016" }],
+              abstract: "Programación en Lenguaje C# (Framework 4), PHP para plataforma Web, Maquetado de HTML5, MVC, Capas, Web API, especializado en Front End y Responsive Design, Bases de Datos SQL Server 2014, 2012, 2008 R2, MySQL y Postres 9.4, administración de servidores Azure y CentOS. Implementación, Integración y Configuración de CMS (WordPress y Joomla), desarrollo de funcionalidad en sistema existente en AngularJS, Configuración y reparación de LCMS (Learning Content Management System) Moodle",
+              activities: [
+                { activity: "Integración de Joomla con .NET" },
+                { activity: "Implementación de CMS (Joomla, Wordpress) y LCMS (Moodle)"},
+                { activity: "Consumo de WebAPI"},
+                { activity: "Maquetado usando Bootstrap y MaterializeCSS"},
+                { activity: "Manejo de servers: Azure y CentOs"},
+                { activity: "jQuery, JSON, Ajax y CSS3 "}
+                ],
+              knowledge : [
+                { knowing : "WebAPI", color : "purple", percentage:"80" },
+                { knowing : "Configuración y puesta punto de CMS", color : "purple", percentage:"90" },
+                { knowing : "Manejo de Servidores", color : "red", percentage:"80" },
+                { knowing : "Diseño Web", color : "green", percentage:"95" }
+              ]
+              },
+              {
+              id : "07",
+              charge: "Full Stack .Net Web Developer",
+              logo: "assets/img/logo-chubb.png",
+              consultant: "Gonet - CHUBB Actualidad",
+              startDate : "Diciembre 2016",
+              endDate : "Actualmente",
+              dates : [{ startDate: "15/12/2016", endDate: "29/09/2017" }],
+              abstract: "Mantenimiento de Sistemas Financieros y Creación de nuevos módulos, Repositorio de Documentos, Implementación de Wiki para soportar documentación y lecciones aprendidas, tecnologías C# Framework 4 - 4.5 MVC, Angular JS, ASPX, Oracle (Store Procedures), SQL Server 2014, Ajax, Bootstrap, Jquery, CSS 3.0, Internacionalización.",
+              activities: [
+                { activity: "Creación de modulos nuevos" },
+                { activity: "Implementación de servicios de calificadora financiera Moody's" },
+                { activity: "Implementación de servicios de Identificación de riesgos (World Check, ICC Compliance Link)" },
+                { activity: "Implementación de Pruebas de Usabilidad con Hotjar" },
+                { activity: "Implementación de recopilador de documentación WikiMedia" },
+                { activity: "Repositorio de Documentos"},
+                { activity: "Reparación y Mantenimiento de Core Financiero"},
+                { activity: "Consumo de Web Services SOAP, WCF y REST"},
+                { activity: "Creación y Uso de Funciones y Store Procedures SQL Server y Oracle"},
+                { activity: "Manejo de versionamiento TFS"},
+                { activity: "Creación de Reportes Dinámicos con ChartJS, Typeahead y Web API"},
+                { activity: "Kendo, Angular JS,jQuery, JSON, Ajax y CSS3 "}
+                ],
+              knowledge : [
+                { knowing : "Web Services y Web API", color : "purple", percentage:"80" },
+                { knowing : "Mantenimiento", color : "purple", percentage:"90" },
+                { knowing : "Rebranding", color : "purple", percentage:"90" },
+                { knowing : "Versionamiento", color : "red", percentage:"80" },
+                { knowing : "Diseño Web", color : "green", percentage:"95" }
+              ]
+              }
           ]
       },
         English :{
@@ -151,5 +326,9 @@ export class AppComponent {
       this.description = this.info.languages[0].English?.description;
       this.info.clientes = this.info.languages[0].English.clients;
     }
+  }
+
+  open(content) {
+    this.modalService.open(content);
   }
 }

@@ -13,10 +13,9 @@
         <p class="text-md-start">{{ description }}</p>
       </div>
       <div id="links">
-        <div
+        <div class="divLinks"
           *ngFor="let l of links; index as i"
           class="col-md-12"
-          style="margin-left: 5%"
         >
           <a
             target="_blank"
@@ -68,7 +67,7 @@
               src="../assets/img/mexico.png"
               (click)="changeLanguage('Spanish')"
               alt="spanish"
-              style="height: 32px; width: auto; text-align: right"
+              class="language"
             />
           </div>
           <div class="col">
@@ -76,8 +75,34 @@
               src="../assets/img/english.png"
               (click)="changeLanguage('English')"
               alt="english"
-              style="height: 32px; width: auto; text-align: right"
+              class="language"
             />
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="text-center">Timeline</h3>
+              <ul class="timeline">
+                <li *ngFor="let t of info.languages[0].Spanish?.projects; index as i"  [ngClass]="{'timeline-inverted': (i + 1) %2 == 0}" >
+                  <div class="timeline-image">
+                    <img class="img-circle img-responsive" src={{t.logo}} alt="">
+                  </div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4>{{t.charge}}</h4>
+                      <h4 class="subheading">{{t.consultant}} | {{t.startDate}} - {{t.endDate}}</h4>
+                    </div>
+                    <div class="timeline-body">
+                      <p class="text-muted">
+                        {{t.abstract}}
+                      </p>
+                    </div>
+                  </div>
+                  <div [ngClass]="{'line': (i + 1) < 7}" class=""></div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -250,4 +275,33 @@
       </form>
     </div>
   </div>
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Show a second modal and hide this one with the button below.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>Hello, World!</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+  </ng-template>
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
 </div>
