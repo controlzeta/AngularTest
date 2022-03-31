@@ -16,7 +16,7 @@
         <div
           *ngFor="let l of links; index as i"
           class="col-md-12"
-          style="margin-left: 12px"
+          style="margin-left: 5%"
         >
           <a
             target="_blank"
@@ -164,13 +164,15 @@
       </div>
     </div>
   </div>
-  <div id="Clientes" class="row">
-    <h2>Testimonials</h2>
-    <div *ngFor="let c of info.clientes; index as i" class="col-3">
-      <div class="p-3">
-        <h3>{{ c.nombre }}</h3>
-        <p>{{ c.testimonio }}</p>
-        <img src="{{ c.imagen }}" style="width: 100px; height: auto" />
+  <div id="Clientes" class="container-fluid">
+    <div class="row">
+      <h2>Testimonials</h2>
+      <div *ngFor="let c of info.clientes; index as i" class="col-3">
+        <div class="p-3">
+          <h3>{{ c.nombre }}</h3>
+          <p>{{ c.testimonio }}</p>
+          <img src="{{ c.imagen }}" style="width: 100px; height: auto" />
+        </div>
       </div>
     </div>
   </div>
@@ -178,49 +180,54 @@
     <p class="text-center">{{ charge }} | {{ name }} {{ year }}</p>
   </div>
   <!-- </form> -->
-</div>
-<div class="container" style="display:none;">
-  <h1>Formulario</h1>
-  <form (ngSubmit)="onRegister()" #MyForm="ngForm">
-    <div class="input-group">
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="registerName"
-        required
-        [(ngModel)]="register.name"
-        class="form-control"
-      />
-      <p></p>
-    </div>
-    <div class="input-group">
-      <label for="name">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="registerEmail"
-        required
-        [(ngModel)]="register.email"
-        class="form-control"
-      />
-    </div>
-    <div class="input-group">
-      <label for="password">Password:</label>
-      <input
-        type="password"
-        id="name"
-        name="registerPassword"
-        required
-        [(ngModel)]="register.password"
-        class="form-control"
-      />
-    </div>
-    <div>
-      <button type="submit" [disabled]="MyForm.invalid" class="btn btn-primary">
-        Registrar
-      </button>
-      <button type="button" class="btn btn-secondary">Otro Botón</button>
-    </div>
-  </form>
+
+  <div class="container" style="display: none">
+    <h1>Formulario</h1>
+    <form (ngSubmit)="onRegister()" #MyForm="ngForm">
+      <div class="input-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="registerName"
+          required
+          [(ngModel)]="register.name"
+          class="form-control"
+        />
+        <p></p>
+      </div>
+      <div class="input-group">
+        <label for="name">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="registerEmail"
+          required
+          [(ngModel)]="register.email"
+          class="form-control"
+        />
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="name"
+          name="registerPassword"
+          required
+          [(ngModel)]="register.password"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          [disabled]="MyForm.invalid"
+          class="btn btn-primary"
+        >
+          Registrar
+        </button>
+        <button type="button" class="btn btn-secondary">Otro Botón</button>
+      </div>
+    </form>
+  </div>
 </div>
