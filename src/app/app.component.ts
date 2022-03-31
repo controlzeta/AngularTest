@@ -19,14 +19,24 @@ export class AppComponent {
     languages :[
       {
         Spanish : {
-          description: " Soy Francisco Arroyo un desarrollador Fullstack web mexicano enfocado a C# por su rubustez, escalabilidad e interoperabilidad con otros sistemas, pero eso no es todo también he trabajado con PHP, Angular JS y VB realizando mejoras, migraciones y reparaciones de sistemas existentes. Puedo trabajar en modo freelance o por consultora."
-        }
+          description: " Soy Francisco Arroyo un desarrollador Fullstack web mexicano enfocado a C# por su rubustez, escalabilidad e interoperabilidad con otros sistemas, pero eso no es todo también he trabajado con PHP, Angular JS y VB realizando mejoras, migraciones y reparaciones de sistemas existentes. Puedo trabajar en modo freelance o por consultora.",
+          clients : [
+            {	nombre : "Octavio Rivas", "cargo":"Analist & QA Leader at X1 México", testimonio : "Gran líder de equipos de trabajo, excelente comunicador e innovador. Trabaja excelente en equipo, con mucho compromiso por sacar adelante todos los proyectos.", imagen: "../assets/img/x1mexico-logo.png"	},
+            {	nombre : "Hugo Lugo", "cargo":"Business Partner en Global Hitss", testimonio : "Francisco es una persona comprometida, profesional y proactivo, siempre dedicado y a la altura se los retos que se le presenten.", imagen: "../assets/img/consolid-logo.png"	},
+            {	nombre : "Hiriam Eduardo Perez", "cargo":"Subdirector de Sistemas (INAI)", testimonio : "Francisco fue un gran colaborador a mi cargo para distintos proyectos de desarrollo de software, consultoría tecnológica e inteligencia de negocio.", imagen: "../assets/img/inai-logo.jpg"	},
+            {	nombre : "Salvador Alvarado Tabuyo", "cargo":"IT Manager", testimonio : "Un excelente elemento y con una capacidad sobre el promedio.", imagen: "../assets/img/logo-chubb-2.png"	}
+          ]
       },
-      {
         English :{
-          description: "I'm a Fullstack .Net Developer focused on C# for its hardiness, scalability and interoperability with other systems, I have also worked with PHP, Angular JS and VB making improvements, migrations and repairs of existing systems. I'm able to work in teams, remotely or on site.' I love to keep me updated on new hardware and software solutions, either through online courses, lectures, attend to webinars, read blogs or classroom courses is always better to know what new technologies you can take for your work."
+          description: "I'm a Fullstack .Net Developer focused on C# for its hardiness, scalability and interoperability with other systems, I have also worked with PHP, Angular JS and VB making improvements, migrations and repairs of existing systems. I'm able to work in teams, remotely or on site.' I love to keep me updated on new hardware and software solutions, either through online courses, lectures, attend to webinars, read blogs or classroom courses is always better to know what new technologies you can take for your work.",
+          clients : [
+            {	nombre : "Octavio Rivas", "cargo":"Analist & QA Leader at X1 México", testimonio : "Great team leader, excellent communicator and innovator. He works excellent as a team, with a lot of commitment to carry out all the projects", imagen: "../assets/img/x1mexico-logo.png"	},
+            {	nombre : "Hugo Lugo", "cargo":"Business Partner en Global Hitss", testimonio : "Francisco is a committed, professional and proactive person, always dedicated and up to the challenges that arise.", imagen: "../assets/img/consolid-logo.png"	},
+            {	nombre : "Hiriam Eduardo Perez", "cargo":"Subdirector de Sistemas (INAI)", testimonio : "Francisco was a great collaborator in my charge for different projects of software development, technology consulting and business intelligence.", imagen: "../assets/img/inai-logo.jpg"	},
+            {	nombre : "Salvador Alvarado Tabuyo", "cargo":"IT Manager", testimonio : "An excellent element and with a capacity above the average.", imagen: "../assets/img/logo-chubb-2.png"	}
+          ]
         }
-      },
+      }
     ],
     clientes : [
       {	nombre : "Octavio Rivas", "cargo":"Analist & QA Leader at X1 México", testimonio : "Gran líder de equipos de trabajo, excelente comunicador e innovador. Trabaja excelente en equipo, con mucho compromiso por sacar adelante todos los proyectos.", imagen: "../assets/img/x1mexico-logo.png"	},
@@ -72,8 +82,8 @@ export class AppComponent {
 
   technologies: Array<technologiesModel> = [
 		{ ramo : "Programación", nivel : "Avanzado", utilerias : "C#, ASP, ASP.Net, Visual Basic, Html5" },
-		{ ramo : "Bases de Datos", nivel : "Avanzado", utilerias : "SQL Server 2014, Postgres, MySQL, Oracle 11g" },
-		{ ramo : "IDE", nivel : "Avanzado", utilerias : "Visual Studio 2012, Visual Studio 2013, Visual Studio 2015" },
+		{ ramo : "Bases de Datos", nivel : "Avanzado", utilerias : "SQL Server 2014, Oracle 11g, Postgres, MySQL" },
+		{ ramo : "IDE", nivel : "Avanzado", utilerias : "Visual Studio 2019 - Visual Studio 2012, Visual Studio Code" },
 		{ ramo : "Programación", nivel : "Medio", utilerias : "PHP" },
 		{ ramo : "Lenguajes de Modelado", nivel : "Medio", utilerias : "UML" },
 		{ ramo : "Patrones de Diseño", nivel : "Avanzado", utilerias : "MVC, MVP, N Tier" },
@@ -136,8 +146,10 @@ export class AppComponent {
   changeLanguage(lang:string){
     if(lang == 'Spanish'){
       this.description = this.info.languages[0].Spanish?.description;
+      this.info.clientes = this.info.languages[0].Spanish?.clients;
     }else{
-      this.description = this.info.languages[1].English?.description;
+      this.description = this.info.languages[0].English?.description;
+      this.info.clientes = this.info.languages[0].English.clients;
     }
   }
 }
