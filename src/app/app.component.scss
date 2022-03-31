@@ -9,8 +9,8 @@ html, body, div, h1, h2, h3, label, p{
 }
 
 img{
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 15%;
 }
 
 button{
@@ -33,6 +33,13 @@ ul {
     width: 200px;
     overflow: auto;
     background-color: aliceblue;
+}
+
+.stack{
+    // height: 10vh;
+    height: auto;
+    width: 100%;
+    margin: 2%;
 }
 
 .card-img {

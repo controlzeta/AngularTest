@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { technologiesModel } from './models/technologiesModel.model';
+import { imagesModel } from './models/imagesModel.modet';
 
 @Component({
   selector: 'app-root',
@@ -46,6 +47,29 @@ export class AppComponent {
     {href : 'https://github.com/controlzeta', class:'fa fa-github fa-stack-1x fa-inverse', color:'#000000', text: 'github.com/controlzeta'},
     {href : 'https://pakoarroyo.controlzeta.com.mx/portfolio.html', class:'fa fa-briefcase fa-stack-1x fa-inverse', color:'#ff0000', text: 'portfolio'}
   ]
+
+  stack: Array<imagesModel> = [
+    {src: '../assets/img/c_sharp_logo.png', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/iis_logo.png', alt: 'IIS Server', width : '100%'},
+    {src: '../assets/img/oracle_logo.png', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/sql_server_logo.jpg', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/chart-js-logo.jpg', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/wcf-logo.jpg', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/web-api-logo.jpg', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/js-logo.png', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/css-logo.png', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/jquery-logo.jpg', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/bootstrap.jpg', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/azure-devops.png', alt: 'C# Language', width : '100%'},
+  ]
+
+  coursesAndCerts: Array<imagesModel> = [
+    {src: '../assets/img/logo-platzi.jpg', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/logo-cisco.jpg', alt: 'IIS Server', width : '100%'},
+    {src: '../assets/img/ps-logo.png', alt: 'C# Language', width : '100%'},
+    {src: '../assets/img/scrum-logo.png', alt: 'C# Language', width : '100%'}
+  ]
+
   technologies: Array<technologiesModel> = [
 		{ ramo : "Programación", nivel : "Avanzado", utilerias : "C#, ASP, ASP.Net, Visual Basic, Html5" },
 		{ ramo : "Bases de Datos", nivel : "Avanzado", utilerias : "SQL Server 2014, Postgres, MySQL, Oracle 11g" },
