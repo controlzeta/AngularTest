@@ -10,7 +10,7 @@
       <h1 class="text-center">{{ name }}</h1>
       <h2 class="text-center">{{ charge }}</h2>
       <div class="container">
-        <p class="text-md-start">{{ description }}</p>
+        <p class="text-md-start charge">{{ description }}</p>
       </div>
       <div id="links">
         <div
@@ -327,7 +327,7 @@
   </div>
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+      <h4 class="modal-title" id="modal-basic-title">{{info.recomendations}}</h4>
       <button
         type="button"
         class="btn-close"
@@ -348,7 +348,7 @@
       </button>
     </div>
   </ng-template>
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)" style="display: none;">
     Launch demo modal
   </button>
 </div>
