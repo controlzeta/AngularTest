@@ -8,19 +8,25 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class AppComponent {
 
-  constructor(private tileService : Title) {
+  constructor(private tileService : Title, config: NgbModalConfig, private modalService: NgbModal) {
       tileService.setTitle(this.charge + ' | ' + this.name);
+      config.backdrop = 'static';
+      config.keyboard = false;
   }
+
+  language="";
 
   info = {
     languages :[
       {
         Spanish : {
           description: " Soy Francisco Arroyo un desarrollador Fullstack web mexicano enfocado a C# por su rubustez, escalabilidad e interoperabilidad con otros sistemas, pero eso no es todo también he trabajado con PHP, Angular JS y VB realizando mejoras, migraciones y reparaciones de sistemas existentes. Puedo trabajar en modo freelance o por consultora.",
+          recomendations: "Recomendaciones",
           clients : [
             {	nombre : "Octavio Rivas", "cargo":"Analist & QA Leader at X1 México", testimonio : "Gran líder de equipos de trabajo, excelente comunicador e innovador. Trabaja excelente en equipo, con mucho compromiso por sacar adelante todos los proyectos.", imagen: "../assets/img/x1mexico-logo.png"	},
             {	nombre : "Hugo Lugo", "cargo":"Business Partner en Global Hitss", testimonio : "Francisco es una persona comprometida, profesional y proactivo, siempre dedicado y a la altura se los retos que se le presenten.", imagen: "../assets/img/consolid-logo.png"	},
@@ -31,7 +37,7 @@ export class AppComponent {
               {
               id : "01",
               charge: "Diseño Web y Webmaster",
-              logo: "assets/img/logo-controlzeta.jpg",
+              logo: "assets/img/freelancer.png",
               consultant: "Freelance",
               startDate : "Junio 2011",
               endDate : "Actualidad",
@@ -55,7 +61,7 @@ export class AppComponent {
               {
               id : "02",
               charge : " .Net  Developer",
-              logo: "assets/img/camebra-logo.png",
+              logo: "assets/img/ecommerce.png",
               consultant: "CAMEBRA",
               startDate : "Abril 2011",
               endDate : "Febrero 2013",
@@ -77,7 +83,7 @@ export class AppComponent {
               {
               id : "03",
               charge: "Desarrollador .Net C#",
-              logo: "assets/img/inai-logo.jpg",
+              logo: "assets/img/government.png",
               consultant: "INAI - Indra",
               startDate : "Marzo 2013",
               endDate : "Enero 2014",
@@ -102,7 +108,7 @@ export class AppComponent {
               {
               id : "04",
               charge: "Desarrollador MVC .Net",
-              logo: "assets/img/unifin-logo.png",
+              logo: "assets/img/banking.png",
               consultant: "Unifin Financiera",
               startDate : "Marzo 2014",
               endDate : "Julio 2014",
@@ -125,7 +131,7 @@ export class AppComponent {
               {
               id : "05",
               charge: "Desarrollador .Net Front End",
-              logo: "assets/img/consolid-logo.png",
+              logo: "assets/img/travel.png",
               consultant: "Gonet - Consolid",
               startDate : "Agosto 2014",
               endDate : "Junio 2015",
@@ -148,7 +154,7 @@ export class AppComponent {
               {
               id : "06",
               charge: "Full Stack Web Developer",
-              logo: "assets/img/x1mexico-logo.png",
+              logo: "assets/img/government.png",
               consultant: "X1 México",
               startDate : "Junio 2015",
               endDate : "Diciembre 2016",
@@ -172,7 +178,7 @@ export class AppComponent {
               {
               id : "07",
               charge: "Full Stack .Net Web Developer",
-              logo: "assets/img/logo-chubb.png",
+              logo: "assets/img/insurance.png",
               consultant: "Gonet - CHUBB Actualidad",
               startDate : "Diciembre 2016",
               endDate : "Actualmente",
@@ -204,6 +210,7 @@ export class AppComponent {
       },
         English :{
           description: "I'm a Fullstack .Net Developer focused on C# for its hardiness, scalability and interoperability with other systems, I have also worked with PHP, Angular JS and VB making improvements, migrations and repairs of existing systems. I'm able to work in teams, remotely or on site.' I love to keep me updated on new hardware and software solutions, either through online courses, lectures, attend to webinars, read blogs or classroom courses is always better to know what new technologies you can take for your work.",
+          recomendations: "Recomendations",
           clients : [
             {	nombre : "Octavio Rivas", "cargo":"Analist & QA Leader at X1 México", testimonio : "Great team leader, excellent communicator and innovator. He works excellent as a team, with a lot of commitment to carry out all the projects", imagen: "../assets/img/x1mexico-logo.png"	},
             {	nombre : "Hugo Lugo", "cargo":"Business Partner en Global Hitss", testimonio : "Francisco is a committed, professional and proactive person, always dedicated and up to the challenges that arise.", imagen: "../assets/img/consolid-logo.png"	},
@@ -213,6 +220,7 @@ export class AppComponent {
         }
       }
     ],
+    recomendations : "Recomendaciones",
     clientes : [
       {	nombre : "Octavio Rivas", "cargo":"Analist & QA Leader at X1 México", testimonio : "Gran líder de equipos de trabajo, excelente comunicador e innovador. Trabaja excelente en equipo, con mucho compromiso por sacar adelante todos los proyectos.", imagen: "../assets/img/x1mexico-logo.png"	},
       {	nombre : "Hugo Lugo", "cargo":"Business Partner en Global Hitss", testimonio : "Francisco es una persona comprometida, profesional y proactivo, siempre dedicado y a la altura se los retos que se le presenten.", imagen: "../assets/img/consolid-logo.png"	},
@@ -322,13 +330,15 @@ export class AppComponent {
     if(lang == 'Spanish'){
       this.description = this.info.languages[0].Spanish?.description;
       this.info.clientes = this.info.languages[0].Spanish?.clients;
+      this.info.recomendations = this.info.languages[0].Spanish?.recomendations;
     }else{
       this.description = this.info.languages[0].English?.description;
       this.info.clientes = this.info.languages[0].English.clients;
+      this.info.recomendations = this.info.languages[0].English?.recomendations;
     }
   }
 
-  open(content) {
-    this.modalService.open(content);
+  open(content: any) {
+    this.modalService.open(content, { size: 'xl' });
   }
 }

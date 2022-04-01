@@ -3,6 +3,10 @@
     src: url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2) format('woff2');
 }
 
+html,p{
+  font-size: 1.3em;
+}
+
 html, body, div, h1, h2, h3, label, p{
     font-family: 'Roboto', sans-serif !important;
     font-style: normal;
@@ -355,4 +359,10 @@ padding:0;
 .timeline > li .line {
   display: none;
 }
+}
+.icon{
+  width: auto;
+  height: 80%;
+  margin-top: 5%;
+  padding-left: 10%;
 }
