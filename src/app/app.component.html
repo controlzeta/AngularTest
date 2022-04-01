@@ -3,21 +3,24 @@
   <div>
     <div class="row">
       <div class="col-9 col-md-8 col-sm-8 col-xs-7"></div>
-      <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: right;">
+      <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: right">
         <img
           src="../assets/img/mexico.png"
           (click)="changeLanguage('Spanish')"
           alt="spanish"
           class="language"
-          ngClass="active"
+          [ngbTooltip]="'Español'"
+          [ngClass]="{ active: language == 'Spanish' }"
         />
       </div>
-      <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: left;">
+      <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: left">
         <img
           src="../assets/img/english.png"
           (click)="changeLanguage('English')"
           alt="english"
           class="language"
+          [ngbTooltip]="'English'"
+          [ngClass]="{ active: language == 'English' }"
         />
       </div>
     </div>
@@ -58,7 +61,8 @@
         [ngClass]="{
           valid: inputName.valid,
           invalid: !inputName.valid
-        }" style="display: none;"
+        }"
+        style="display: none"
       ></div>
       <div id="stack">
         <div class="row">
@@ -69,7 +73,9 @@
             *ngFor="let t of stack; index as i"
             class="col-md-3 col-sm-4 col-xs-4"
           >
-            <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
+            <div [ngbTooltip]="t.alt">
+              <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
+            </div>
           </div>
         </div>
       </div>
@@ -103,7 +109,7 @@
                 >
                   <div class="timeline-image">
                     <img
-                      (click)="open(content)"
+                      (click)="open(t,content)"
                       [ngbTooltip]="t.consultant + ' - ' + t.charge"
                       class="img-circle img-responsive icon"
                       src="{{ t.logo }}"
@@ -209,19 +215,25 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
               <img
                 src="../assets/img/portafolio-iConfianza2020.png"
+                class="project"
                 style="width: 100%; height: auto; padding-bottom: 1em"
+                [ngbTooltip]="'iConfianza | Chubb'"
               />
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
               <img
                 src="../assets/img/portafolio-c3-c3llpoint.png"
+                class="project"
                 style="width: 100%; height: auto; padding-bottom: 1em"
+                [ngbTooltip]="'C3 | Cellpoint'"
               />
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
               <img
                 src="../assets/img/portafolio-procadist.jpg"
+                class="project"
                 style="width: 100%; height: auto; padding-bottom: 1em"
+                [ngbTooltip]="'Observatorio del Trabajo | X1 México'"
               />
             </div>
           </div>
@@ -338,10 +350,10 @@
       </div>
     </div>
   </div>
-  <ng-template #content let-c="close" let-d="dismiss">
+  <ng-template #content let-content="content" let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">
-        {{ info.recomendations }}
+        {{ info.project.charge }}
       </h4>
       <button
         type="button"
@@ -351,23 +363,61 @@
       ></button>
     </div>
     <div class="modal-body">
-      <p>Hello, World!</p>
+      <div class="d-flex position-relative">
+        <img
+          src="{{ info.project.logo }}"
+          class="flex-shrink-0 me-3"
+          alt="{{ info.project.consultant }}"
+        />
+        <div>
+          <h4 class="mt-0">{{ info.project.consultant }}</h4>
+          <h5 class="mt-0">
+            {{ info.project.startDate }} - {{ info.project.endDate }}
+          </h5>
+          <p>{{ info.project.abstract }}</p>
+          <hr />
+          <h6>Actividades</h6>
+          <ul
+            *ngFor="let c of info.project.activities; index as i"
+            class="col-12"
+          >
+            <li class="">
+              <i class="fa fa-terminal" style="font-size: 1.2em; font-weight:bold;"></i>&nbsp;&nbsp;{{ c.activity }}
+            </li>
+          </ul>
+          <hr />
+          <h6>Conocimientos</h6>
+          <div
+            *ngFor="let c of info.project.knowledge; index as i"
+            class="col-12"
+          >
+            <div class="col-12">
+              <label>{{ c.knowing }} </label>
+              <!-- <progress max="100" class="progress-bar" value="{{c.percentage}}" [style.color]="c.color" ></progress> -->
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 100%;" (aria-valuenow)="c.percentage" aria-valuemin="0" aria-valuemax="100">{{c.percentage}} %</div>
+              </div>
+            </div>
+          </div>
+          <!-- <a href="#" class="stretched-link">Go somewhere</a> -->
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
-      <button
+      <!-- <button
         type="button"
         class="btn btn-outline-dark"
         (click)="c('Save click')"
       >
         Save
-      </button>
+      </button> -->
     </div>
   </ng-template>
-  <button
+  <!-- <button
     class="btn btn-lg btn-outline-primary"
     (click)="open(content)"
     style="display: none"
   >
     Launch demo modal
-  </button>
+  </button> -->
 </div>

@@ -34,6 +34,12 @@ img {
   height: 15%;
 }
 
+.language.active{
+  box-shadow: #121314;
+  transition: width 1s, height 1s;
+  height: 38px;
+}
+
 button {
   font-family: "Roboto", sans-serif;
   padding: 4px;
@@ -76,10 +82,28 @@ ul {
 }
 
 .stack {
-  // height: 10vh;
   height: auto;
   width: 100%;
   margin: 2%;
+}
+
+.stack:hover {
+  transition: width .5s, height .5s;
+  height: auto;
+  width: 110%;
+  // margin: 1%;
+}
+
+.project:hover{
+  transition: width .5s, height .5s;
+  height: auto !important;
+  width: 102% !important;
+  box-shadow: 5px #4582ec;
+}
+
+.p-3:hover{
+  transition: width .5s, height .5s;
+  font-size: 1.1em;
 }
 
 .card-img {
@@ -252,6 +276,7 @@ ul {
 .timeline .timeline-body > ul {
   margin-bottom: 0;
   color: #808080;
+  text-align: justify;
 }
 /*Style for even div.line*/
 .timeline > li:nth-child(odd) .line:before {
