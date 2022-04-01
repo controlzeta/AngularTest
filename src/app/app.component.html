@@ -1,5 +1,27 @@
 <div class="container-fluid">
   <!-- <form> -->
+  <div>
+    <div class="row">
+      <div class="col-9 col-md-8 col-sm-8 col-xs-7"></div>
+      <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: right;">
+        <img
+          src="../assets/img/mexico.png"
+          (click)="changeLanguage('Spanish')"
+          alt="spanish"
+          class="language"
+          ngClass="active"
+        />
+      </div>
+      <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: left;">
+        <img
+          src="../assets/img/english.png"
+          (click)="changeLanguage('English')"
+          alt="english"
+          class="language"
+        />
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xl-4 col-lg-3 col-md-3 col-sm-3 col-xs-12">
       <img
@@ -36,14 +58,17 @@
         [ngClass]="{
           valid: inputName.valid,
           invalid: !inputName.valid
-        }"
+        }" style="display: none;"
       ></div>
       <div id="stack">
         <div class="row">
           <h2 class="text-center">Stack</h2>
         </div>
         <div class="row">
-          <div *ngFor="let t of stack; index as i" class="col-3">
+          <div
+            *ngFor="let t of stack; index as i"
+            class="col-md-3 col-sm-4 col-xs-4"
+          >
             <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
           </div>
         </div>
@@ -53,7 +78,10 @@
           <h2 class="text-center">Courses And Certifications</h2>
         </div>
         <div class="row">
-          <div *ngFor="let t of coursesAndCerts; index as i" class="col-3">
+          <div
+            *ngFor="let t of coursesAndCerts; index as i"
+            class="col-md-3 col-sm-4 col-xs-4"
+          >
             <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
           </div>
         </div>
@@ -61,29 +89,9 @@
     </div>
     <div class="col-xl-8 col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <div class="container">
-        <div class="row">
-          <div class="col-10"></div>
-          <div class="col" style="text-align: right">
-            <img
-              src="../assets/img/mexico.png"
-              (click)="changeLanguage('Spanish')"
-              alt="spanish"
-              class="language"
-              ngClass="active"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="../assets/img/english.png"
-              (click)="changeLanguage('English')"
-              alt="english"
-              class="language"
-            />
-          </div>
-        </div>
         <div class="container">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-xs-12">
               <h3 class="text-center">Timeline</h3>
               <ul class="timeline">
                 <li
@@ -94,7 +102,9 @@
                   [ngClass]="{ 'timeline-inverted': (i + 1) % 2 == 0 }"
                 >
                   <div class="timeline-image">
-                    <img (click)="open(content)" [ngbTooltip]="t.consultant + ' - ' + t.charge"
+                    <img
+                      (click)="open(content)"
+                      [ngbTooltip]="t.consultant + ' - ' + t.charge"
                       class="img-circle img-responsive icon"
                       src="{{ t.logo }}"
                       alt=""
@@ -193,25 +203,25 @@
             type="text"
           />
         </div>
-        <div id="Projects" class="container-fluid">
+        <div id="Projects" class="col-12">
           <div class="row">
             <h2>Projects</h2>
-            <div class="col-4">
+            <div class="col-md-4 col-sm-4 col-xs-12">
               <img
                 src="../assets/img/portafolio-iConfianza2020.png"
-                style="width: 100%; height: auto"
+                style="width: 100%; height: auto; padding-bottom: 1em"
               />
             </div>
-            <div class="col-4">
+            <div class="col-md-4 col-sm-4 col-xs-12">
               <img
                 src="../assets/img/portafolio-c3-c3llpoint.png"
-                style="width: 100%; height: auto"
+                style="width: 100%; height: auto; padding-bottom: 1em"
               />
             </div>
-            <div class="col-4">
+            <div class="col-md-4 col-sm-4 col-xs-12">
               <img
                 src="../assets/img/portafolio-procadist.jpg"
-                style="width: 100%; height: auto"
+                style="width: 100%; height: auto; padding-bottom: 1em"
               />
             </div>
           </div>
@@ -222,10 +232,13 @@
       <div class="row">
         <div class="col-12">
           <div class="col-12">
-            <h2>{{info.recomendations}}</h2>
+            <h2>{{ info.recomendations }}</h2>
           </div>
         </div>
-        <div *ngFor="let c of info.clientes; index as i" class="col-3">
+        <div
+          *ngFor="let c of info.clientes; index as i"
+          class="col-md-3 col-sm-4 col-xs-12"
+        >
           <div class="p-3">
             <h3>{{ c.nombre }}</h3>
             <div class="testimonio">
@@ -327,7 +340,9 @@
   </div>
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">{{info.recomendations}}</h4>
+      <h4 class="modal-title" id="modal-basic-title">
+        {{ info.recomendations }}
+      </h4>
       <button
         type="button"
         class="btn-close"
@@ -348,7 +363,11 @@
       </button>
     </div>
   </ng-template>
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)" style="display: none;">
+  <button
+    class="btn btn-lg btn-outline-primary"
+    (click)="open(content)"
+    style="display: none"
+  >
     Launch demo modal
   </button>
 </div>
