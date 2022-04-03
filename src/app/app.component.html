@@ -106,7 +106,7 @@
           <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
           <button (click)="toggleButton()">Toggle</button>
           <div *ngIf="show">
-            <progress max="100" value="{{ progressBar }}"></progress><label>{{ progressBar }}%</label>
+            <progress max="100" value={{progressBar}} min="0" ></progress><label>{{ progressBar }}%</label>
             <a target="_blank" href="{{ imageSrc }}">Link</a>
             <div class="box" (scroll)="onScroll($event)">
               <p>{{ description }}</p>
@@ -238,13 +238,13 @@
     </div>
     <div class="modal-body">
       <div class="d-flex position-relative">
-        <img src="{{ info.project.logo }}" class="flex-shrink-0 me-3" alt="{{ info.project.consultant }}" />
+        <img src="{{ info.project.logo }}" class="flex-shrink-0 me-3"  [ngbTooltip]="info.project.charge + ' | ' + info.project.consultant" alt="{{ info.project.consultant }}" />
         <div>
           <h4 class="mt-0">{{ info.project.consultant }}</h4>
           <h5 class="mt-0">
             {{ info.project.startDate }} - {{ info.project.endDate }}
           </h5>
-          <p>{{ info.project.abstract }}</p>
+          <p class="text-muted abstract">{{ info.project.abstract }}</p>
           <hr />
           <h6>Actividades</h6>
           <ul *ngFor="let c of info.project.activities; index as i" class="col-12">
@@ -256,12 +256,8 @@
           <h6>Conocimientos</h6>
           <div *ngFor="let c of info.project.knowledge; index as i" class="col-12">
             <div class="col-12">
-              <label>{{ c.knowing }} </label>
-              <!-- <progress max="100" class="progress-bar" value="{{c.percentage}}" [style.color]="c.color" ></progress> -->
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 100%;" (aria-valuenow)="c.percentage"
-                  aria-valuemin="0" aria-valuemax="100">{{c.percentage}} %</div>
-              </div>
+              <label> {{ c.knowing }} </label>
+              <p><ngb-progressbar [type]="getClass(i)" textType="normal" interval="100" [value]="getNumber(c.percentage)" [showValue]="true"></ngb-progressbar></p>
             </div>
           </div>
           <!-- <a href="#" class="stretched-link">Go somewhere</a> -->

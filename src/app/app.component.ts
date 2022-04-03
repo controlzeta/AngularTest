@@ -5,6 +5,7 @@ import { technologiesModel } from './models/technologiesModel.model';
 import { imagesModel } from './models/imagesModel.modet';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
+import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +18,17 @@ export class AppComponent implements OnInit {
     private tileService: Title,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private progBar: NgbProgressbarConfig
   ) {
     tileService.setTitle(this.charge + ' | ' + this.name);
     config.backdrop = 'static';
     config.keyboard = false;
+    progBar.max = 100;
+    progBar.striped = true;
+    progBar.animated = true;
+    progBar.type = 'success';
+    progBar.height = '20px';
   }
 
   language = '';
@@ -74,7 +81,7 @@ export class AppComponent implements OnInit {
               endDate: 'Actualidad',
               dates: [{ startDate: '01/06/2011', endDate: 'Today' }],
               starred: false,
-              projectImg : "../assets/img/portafolio-iConfianza2020.png",
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Diseño, Desarrollo, Implementación y mantenimiento de páginas web para clientes finales, en CMS o HTML5 desde cero ',
               activities: [
@@ -89,10 +96,10 @@ export class AppComponent implements OnInit {
                 { activity: 'Creación y conexión de perfiles de Social Media' },
               ],
               knowledge: [
-                { knowing: 'PHP', color: 'purple', percentage: '60' },
-                { knowing: 'HTML5', color: 'red', percentage: '95' },
-                { knowing: 'CMS', color: 'red', percentage: '85' },
-                { knowing: 'SEO', color: 'green', percentage: '78' },
+                { knowing: 'PHP', color: 'purple', percentage: 60 },
+                { knowing: 'HTML5', color: 'red', percentage: 95 },
+                { knowing: 'CMS', color: 'red', percentage: 85 },
+                { knowing: 'SEO', color: 'green', percentage: 78 },
               ],
             },
             {
@@ -104,7 +111,7 @@ export class AppComponent implements OnInit {
               endDate: 'Febrero 2013',
               dates: [{ startDate: '01/04/2011', endDate: '01/02/2013' }],
               starred: false,
-              projectImg : "../assets/img/portafolio-iConfianza2020.png",
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Colabore en la realización de un sistema web para ventas de productos tecnológicos en ASP.NET 4, Hojas de Estilo CSS 2.1, Jquery y Motor de Base de Datos SQL Server 2008 R2 con objetos sqlclient. También di soporte a otras aplicaciones las cuales contaban con tecnologías como: Entity Framework, Webservices y RIA Services WCF, Silverlight.',
               activities: [
@@ -114,13 +121,13 @@ export class AppComponent implements OnInit {
                 { activity: 'Soporte de Aplicaciones' },
               ],
               knowledge: [
-                { knowing: 'ASP.NET 4', color: 'purple', percentage: '60' },
-                { knowing: 'CSS 2.1', color: 'red', percentage: '65' },
-                { knowing: 'WCF', color: 'red', percentage: '65' },
+                { knowing: 'ASP.NET 4', color: 'purple', percentage: 60 },
+                { knowing: 'CSS 2.1', color: 'red', percentage: 65 },
+                { knowing: 'WCF', color: 'red', percentage: 65 },
                 {
                   knowing: ' Entity Framework',
                   color: 'green',
-                  percentage: '65',
+                  percentage: 65,
                 },
               ],
             },
@@ -133,7 +140,7 @@ export class AppComponent implements OnInit {
               endDate: 'Enero 2014',
               dates: [{ startDate: '01/03/2013', endDate: '01/01/2014' }],
               starred: false,
-              projectImg : "../assets/img/portafolio-iConfianza2020.png",
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Colabore en la realización de un Portal para la recepción de denuncias que incluía las tecnologías NHibernate Fluent con SQL Server 2008, en Framework ASP .NET 4.0, CSS, Ajax y JQuery, conectado a varios sistemas SAP CRM, BW-BI de SAP y Open Text como repositorio de documentos por medio de Web Service',
               activities: [
@@ -152,11 +159,11 @@ export class AppComponent implements OnInit {
                 {
                   knowing: '.Net Framework 4.0',
                   color: 'purple',
-                  percentage: '80',
+                  percentage: 80,
                 },
-                { knowing: 'nHibernate', color: 'red', percentage: '68' },
-                { knowing: 'Web Services', color: 'red', percentage: '95' },
-                { knowing: 'MAAGTIC', color: 'green', percentage: '80' },
+                { knowing: 'nHibernate', color: 'red', percentage: 68 },
+                { knowing: 'Web Services', color: 'red', percentage: 95 },
+                { knowing: 'MAAGTIC', color: 'green', percentage: 80 },
               ],
             },
             {
@@ -168,7 +175,7 @@ export class AppComponent implements OnInit {
               endDate: 'Julio 2014',
               dates: [{ startDate: '01/03/2014', endDate: '01/07/2014' }],
               starred: false,
-              projectImg : "../assets/img/portafolio-iConfianza2020.png",
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Colabore en la migración de la migración de un Sistema Financiero de Escritorio en Visual Basic 6.0 y 2010 a Plataforma Web con Diseño Responsivo, en arquitectura MVC en lenguaje C# que incluía las tecnologías SQL Server 2008, en Framework ASP .NET 4.0, CSS3, JSON, Bootstrap, Ajax y JQuery. Con funciones como: Cálculos financieros, lectura de archivos, empaquetado de Crystal Reports y comunicación con Dynamics.',
               activities: [
@@ -184,14 +191,14 @@ export class AppComponent implements OnInit {
                 {
                   knowing: '.Net Framework 4.0',
                   color: 'purple',
-                  percentage: '95',
+                  percentage: 95,
                 },
-                { knowing: 'Jquery', color: 'red', percentage: '95' },
-                { knowing: 'AJAX y Json', color: 'red', percentage: '80' },
+                { knowing: 'Jquery', color: 'red', percentage: 95 },
+                { knowing: 'AJAX y Json', color: 'red', percentage: 80 },
                 {
                   knowing: 'Responsive Design',
                   color: 'green',
-                  percentage: '80',
+                  percentage: 80,
                 },
               ],
             },
@@ -204,7 +211,7 @@ export class AppComponent implements OnInit {
               endDate: 'Junio 2015',
               dates: [{ startDate: '01/08/2014', endDate: '01/06/2015' }],
               starred: false,
-              projectImg : "../assets/img/portafolio-iConfianza2020.png",
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Diseño e implementación de Administrador de Usuarios, Seguridad, Motor de Búsqueda de Vuelos (Sabre, Navitaire, Volaris), Cambio de Diseño a Responsive Design (Bootstrap), Consumo de Web Services (SOAP, WCF), Arquitectura de 3 Capas, SQL Server 2012 con Entity Framework, CSS3, jQuery.',
               activities: [
@@ -222,9 +229,9 @@ export class AppComponent implements OnInit {
                 { activity: 'jQuery, JSON, Ajax y CSS3 ' },
               ],
               knowledge: [
-                { knowing: 'Web Services', color: 'purple', percentage: '95' },
-                { knowing: 'Seguridad', color: 'red', percentage: '95' },
-                { knowing: 'Diseño Web', color: 'green', percentage: '95' },
+                { knowing: 'Web Services', color: 'purple', percentage: 95 },
+                { knowing: 'Seguridad', color: 'red', percentage: 95 },
+                { knowing: 'Diseño Web', color: 'green', percentage: 95 },
               ],
             },
             {
@@ -236,7 +243,7 @@ export class AppComponent implements OnInit {
               endDate: 'Diciembre 2016',
               dates: [{ startDate: '01/06/2015', endDate: '01/12/2016' }],
               starred: true,
-              projectImg : "../assets/img/portafolio-procadist.jpg",
+              projectImg: "../assets/img/portafolio-procadist.jpg",
               abstract:
                 'Programación en Lenguaje C# (Framework 4), PHP para plataforma Web, Maquetado de HTML5, MVC, Capas, Web API, especializado en Front End y Responsive Design, Bases de Datos SQL Server 2014, 2012, 2008 R2, MySQL y Postres 9.4, administración de servidores Azure y CentOS. Implementación, Integración y Configuración de CMS (WordPress y Joomla), desarrollo de funcionalidad en sistema existente en AngularJS, Configuración y reparación de LCMS (Learning Content Management System) Moodle',
               activities: [
@@ -251,18 +258,18 @@ export class AppComponent implements OnInit {
                 { activity: 'jQuery, JSON, Ajax y CSS3 ' },
               ],
               knowledge: [
-                { knowing: 'WebAPI', color: 'purple', percentage: '80' },
+                { knowing: 'WebAPI', color: 'purple', percentage: 80 },
                 {
                   knowing: 'Configuración y puesta punto de CMS',
                   color: 'purple',
-                  percentage: '90',
+                  percentage: 90,
                 },
                 {
                   knowing: 'Manejo de Servidores',
                   color: 'red',
-                  percentage: '80',
+                  percentage: 80,
                 },
-                { knowing: 'Diseño Web', color: 'green', percentage: '95' },
+                { knowing: 'Diseño Web', color: 'green', percentage: 95 },
               ],
             },
             {
@@ -274,7 +281,7 @@ export class AppComponent implements OnInit {
               endDate: 'Diciembre 2021',
               dates: [{ startDate: '01/12/2020', endDate: '01/12/2021' }],
               starred: true,
-              projectImg : "../assets/img/portafolio-c3-c3llpoint.png",
+              projectImg: "../assets/img/portafolio-c3-c3llpoint.png",
               abstract:
                 'Mantenimiento de Sistemas Financieros y Creación de nuevos módulos, Repositorio de Documentos, Implementación de Wiki para soportar documentación y lecciones aprendidas, tecnologías C# Framework 4 - 4.5 MVC, Angular JS, ASPX, Oracle (Store Procedures), SQL Server 2014, Ajax, Bootstrap, Jquery, CSS 3.0, Internacionalización.',
               activities: [
@@ -313,12 +320,12 @@ export class AppComponent implements OnInit {
                 {
                   knowing: 'Web Services y Web API',
                   color: 'purple',
-                  percentage: '80',
+                  percentage: 80,
                 },
-                { knowing: 'Mantenimiento', color: 'purple', percentage: '90' },
-                { knowing: 'Rebranding', color: 'purple', percentage: '90' },
-                { knowing: 'Versionamiento', color: 'red', percentage: '80' },
-                { knowing: 'Diseño Web', color: 'green', percentage: '95' },
+                { knowing: 'Mantenimiento', color: 'purple', percentage: 90 },
+                { knowing: 'Rebranding', color: 'purple', percentage: 90 },
+                { knowing: 'Versionamiento', color: 'red', percentage: 80 },
+                { knowing: 'Diseño Web', color: 'green', percentage: 95 },
               ],
             },
             {
@@ -330,7 +337,7 @@ export class AppComponent implements OnInit {
               endDate: 'Actualmente',
               dates: [{ startDate: '15/12/2016', endDate: '29/09/2017' }],
               starred: true,
-              projectImg : "../assets/img/portafolio-iConfianza2020.png",
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Mantenimiento de Sistemas Financieros y Creación de nuevos módulos, Repositorio de Documentos, Implementación de Wiki para soportar documentación y lecciones aprendidas, tecnologías C# Framework 4 - 4.5 MVC, Angular JS, ASPX, Oracle (Store Procedures), SQL Server 2014, Ajax, Bootstrap, Jquery, CSS 3.0, Internacionalización.',
               activities: [
@@ -369,12 +376,12 @@ export class AppComponent implements OnInit {
                 {
                   knowing: 'Web Services y Web API',
                   color: 'purple',
-                  percentage: '80',
+                  percentage: 80,
                 },
-                { knowing: 'Mantenimiento', color: 'purple', percentage: '90' },
-                { knowing: 'Rebranding', color: 'purple', percentage: '90' },
-                { knowing: 'Versionamiento', color: 'red', percentage: '80' },
-                { knowing: 'Diseño Web', color: 'green', percentage: '95' },
+                { knowing: 'Mantenimiento', color: 'purple', percentage: 90 },
+                { knowing: 'Rebranding', color: 'purple', percentage: 90 },
+                { knowing: 'Versionamiento', color: 'red', percentage: 80 },
+                { knowing: 'Diseño Web', color: 'green', percentage: 95 },
               ],
             }
           ],
@@ -602,14 +609,14 @@ export class AppComponent implements OnInit {
   btnDisabled = true;
   progressBar = 1;
   show = false;
-  paramsObject:any =null;
+  paramsObject: any = null;
   // Event Binding
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
         this.language = params['language'];
       }
-    );
+      );
     this.numberOfProjects = this.info.languages[0].Spanish.projects.length;
   }
 
@@ -671,7 +678,30 @@ export class AppComponent implements OnInit {
   }
 
   getItemsStarred() {
-    return this.info.languages[0].Spanish?.projects.filter((item : any) => item.starred === true);
+    return this.info.languages[0].Spanish?.projects.filter((item: any) => item.starred === true);
   }
 
+  getNumber(numero: any) {
+    try {
+      return parseInt(numero);
+    } catch (e) {
+      console.log(e)
+    }
+    return 0;
+  }
+
+  getClass(index: any) {
+    switch (index) {
+      case 1:
+        return "info";
+      case 2:
+        return "success";
+      case 3:
+        return "warning";
+      case 4:
+        return "danger";
+      default:
+        return "primary";
+    }
+  }
 }
