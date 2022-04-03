@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { technologiesModel } from './models/technologiesModel.model';
 import { imagesModel } from './models/imagesModel.modet';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,12 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.scss'],
   providers: [NgbModalConfig, NgbModal],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private tileService: Title,
     config: NgbModalConfig,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private route: ActivatedRoute
   ) {
     tileService.setTitle(this.charge + ' | ' + this.name);
     config.backdrop = 'static';
@@ -23,6 +25,7 @@ export class AppComponent {
   }
 
   language = '';
+  numberOfProjects = 0;
 
   info = {
     languages: [
@@ -70,6 +73,8 @@ export class AppComponent {
               startDate: 'Junio 2011',
               endDate: 'Actualidad',
               dates: [{ startDate: '01/06/2011', endDate: 'Today' }],
+              starred: false,
+              projectImg : "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Diseño, Desarrollo, Implementación y mantenimiento de páginas web para clientes finales, en CMS o HTML5 desde cero ',
               activities: [
@@ -98,6 +103,8 @@ export class AppComponent {
               startDate: 'Abril 2011',
               endDate: 'Febrero 2013',
               dates: [{ startDate: '01/04/2011', endDate: '01/02/2013' }],
+              starred: false,
+              projectImg : "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Colabore en la realización de un sistema web para ventas de productos tecnológicos en ASP.NET 4, Hojas de Estilo CSS 2.1, Jquery y Motor de Base de Datos SQL Server 2008 R2 con objetos sqlclient. También di soporte a otras aplicaciones las cuales contaban con tecnologías como: Entity Framework, Webservices y RIA Services WCF, Silverlight.',
               activities: [
@@ -125,6 +132,8 @@ export class AppComponent {
               startDate: 'Marzo 2013',
               endDate: 'Enero 2014',
               dates: [{ startDate: '01/03/2013', endDate: '01/01/2014' }],
+              starred: false,
+              projectImg : "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Colabore en la realización de un Portal para la recepción de denuncias que incluía las tecnologías NHibernate Fluent con SQL Server 2008, en Framework ASP .NET 4.0, CSS, Ajax y JQuery, conectado a varios sistemas SAP CRM, BW-BI de SAP y Open Text como repositorio de documentos por medio de Web Service',
               activities: [
@@ -158,6 +167,8 @@ export class AppComponent {
               startDate: 'Marzo 2014',
               endDate: 'Julio 2014',
               dates: [{ startDate: '01/03/2014', endDate: '01/07/2014' }],
+              starred: false,
+              projectImg : "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Colabore en la migración de la migración de un Sistema Financiero de Escritorio en Visual Basic 6.0 y 2010 a Plataforma Web con Diseño Responsivo, en arquitectura MVC en lenguaje C# que incluía las tecnologías SQL Server 2008, en Framework ASP .NET 4.0, CSS3, JSON, Bootstrap, Ajax y JQuery. Con funciones como: Cálculos financieros, lectura de archivos, empaquetado de Crystal Reports y comunicación con Dynamics.',
               activities: [
@@ -192,6 +203,8 @@ export class AppComponent {
               startDate: 'Agosto 2014',
               endDate: 'Junio 2015',
               dates: [{ startDate: '01/08/2014', endDate: '01/06/2015' }],
+              starred: false,
+              projectImg : "../assets/img/portafolio-iConfianza2020.png",
               abstract:
                 'Diseño e implementación de Administrador de Usuarios, Seguridad, Motor de Búsqueda de Vuelos (Sabre, Navitaire, Volaris), Cambio de Diseño a Responsive Design (Bootstrap), Consumo de Web Services (SOAP, WCF), Arquitectura de 3 Capas, SQL Server 2012 con Entity Framework, CSS3, jQuery.',
               activities: [
@@ -222,6 +235,8 @@ export class AppComponent {
               startDate: 'Junio 2015',
               endDate: 'Diciembre 2016',
               dates: [{ startDate: '01/06/2015', endDate: '01/12/2016' }],
+              starred: true,
+              projectImg : "../assets/img/portafolio-procadist.jpg",
               abstract:
                 'Programación en Lenguaje C# (Framework 4), PHP para plataforma Web, Maquetado de HTML5, MVC, Capas, Web API, especializado en Front End y Responsive Design, Bases de Datos SQL Server 2014, 2012, 2008 R2, MySQL y Postres 9.4, administración de servidores Azure y CentOS. Implementación, Integración y Configuración de CMS (WordPress y Joomla), desarrollo de funcionalidad en sistema existente en AngularJS, Configuración y reparación de LCMS (Learning Content Management System) Moodle',
               activities: [
@@ -253,11 +268,13 @@ export class AppComponent {
             {
               id: '07',
               charge: 'Full Stack .Net Web Developer',
-              logo: 'assets/img/insurance.png',
-              consultant: 'Gonet - CHUBB Actualidad',
-              startDate: 'Diciembre 2016',
-              endDate: 'Actualmente',
-              dates: [{ startDate: '15/12/2016', endDate: '29/09/2017' }],
+              logo: '../assets/img/freelancer.png',
+              consultant: 'Freelance -',
+              startDate: 'Diciembre 2020',
+              endDate: 'Diciembre 2021',
+              dates: [{ startDate: '01/12/2020', endDate: '01/12/2021' }],
+              starred: true,
+              projectImg : "../assets/img/portafolio-c3-c3llpoint.png",
               abstract:
                 'Mantenimiento de Sistemas Financieros y Creación de nuevos módulos, Repositorio de Documentos, Implementación de Wiki para soportar documentación y lecciones aprendidas, tecnologías C# Framework 4 - 4.5 MVC, Angular JS, ASPX, Oracle (Store Procedures), SQL Server 2014, Ajax, Bootstrap, Jquery, CSS 3.0, Internacionalización.',
               activities: [
@@ -304,6 +321,62 @@ export class AppComponent {
                 { knowing: 'Diseño Web', color: 'green', percentage: '95' },
               ],
             },
+            {
+              id: '08',
+              charge: 'Full Stack .Net Web Developer',
+              logo: 'assets/img/insurance.png',
+              consultant: 'Gonet - CHUBB Actualidad',
+              startDate: 'Diciembre 2016',
+              endDate: 'Actualmente',
+              dates: [{ startDate: '15/12/2016', endDate: '29/09/2017' }],
+              starred: true,
+              projectImg : "../assets/img/portafolio-iConfianza2020.png",
+              abstract:
+                'Mantenimiento de Sistemas Financieros y Creación de nuevos módulos, Repositorio de Documentos, Implementación de Wiki para soportar documentación y lecciones aprendidas, tecnologías C# Framework 4 - 4.5 MVC, Angular JS, ASPX, Oracle (Store Procedures), SQL Server 2014, Ajax, Bootstrap, Jquery, CSS 3.0, Internacionalización.',
+              activities: [
+                { activity: 'Creación de modulos nuevos' },
+                {
+                  activity:
+                    "Implementación de servicios de calificadora financiera Moody's",
+                },
+                {
+                  activity:
+                    'Implementación de servicios de Identificación de riesgos (World Check, ICC Compliance Link)',
+                },
+                {
+                  activity:
+                    'Implementación de Pruebas de Usabilidad con Hotjar',
+                },
+                {
+                  activity:
+                    'Implementación de recopilador de documentación WikiMedia',
+                },
+                { activity: 'Repositorio de Documentos' },
+                { activity: 'Reparación y Mantenimiento de Core Financiero' },
+                { activity: 'Consumo de Web Services SOAP, WCF y REST' },
+                {
+                  activity:
+                    'Creación y Uso de Funciones y Store Procedures SQL Server y Oracle',
+                },
+                { activity: 'Manejo de versionamiento TFS' },
+                {
+                  activity:
+                    'Creación de Reportes Dinámicos con ChartJS, Typeahead y Web API',
+                },
+                { activity: 'Kendo, Angular JS,jQuery, JSON, Ajax y CSS3 ' },
+              ],
+              knowledge: [
+                {
+                  knowing: 'Web Services y Web API',
+                  color: 'purple',
+                  percentage: '80',
+                },
+                { knowing: 'Mantenimiento', color: 'purple', percentage: '90' },
+                { knowing: 'Rebranding', color: 'purple', percentage: '90' },
+                { knowing: 'Versionamiento', color: 'red', percentage: '80' },
+                { knowing: 'Diseño Web', color: 'green', percentage: '95' },
+              ],
+            }
           ],
         },
         English: {
@@ -439,39 +512,39 @@ export class AppComponent {
       width: '100%',
     },
     { src: '../assets/img/iis_logo.png', alt: 'IIS Server', width: '100%' },
-    { src: '../assets/img/oracle_logo.png', alt: 'C# Language', width: '100%' },
+    { src: '../assets/img/oracle_logo.png', alt: 'Oracle', width: '100%' },
     {
       src: '../assets/img/sql_server_logo.jpg',
-      alt: 'C# Language',
+      alt: 'SQL Server',
       width: '100%',
     },
     {
       src: '../assets/img/chart-js-logo.jpg',
-      alt: 'C# Language',
+      alt: 'ChartJS',
       width: '100%',
     },
-    { src: '../assets/img/wcf-logo.jpg', alt: 'C# Language', width: '100%' },
+    { src: '../assets/img/wcf-logo.jpg', alt: 'WCF', width: '100%' },
     {
       src: '../assets/img/web-api-logo.jpg',
-      alt: 'C# Language',
+      alt: 'Web API',
       width: '100%',
     },
-    { src: '../assets/img/js-logo.png', alt: 'C# Language', width: '100%' },
-    { src: '../assets/img/css-logo.png', alt: 'C# Language', width: '100%' },
-    { src: '../assets/img/jquery-logo.jpg', alt: 'C# Language', width: '100%' },
-    { src: '../assets/img/bootstrap.jpg', alt: 'C# Language', width: '100%' },
+    { src: '../assets/img/js-logo.png', alt: 'Javascript', width: '100%' },
+    { src: '../assets/img/css-logo.png', alt: 'CSS 3.0', width: '100%' },
+    { src: '../assets/img/jquery-logo.jpg', alt: 'jQuery', width: '100%' },
+    { src: '../assets/img/bootstrap.jpg', alt: 'Bootstrap', width: '100%' },
     {
       src: '../assets/img/azure-devops.png',
-      alt: 'C# Language',
+      alt: 'Azure',
       width: '100%',
     },
   ];
 
   coursesAndCerts: Array<imagesModel> = [
-    { src: '../assets/img/logo-platzi.jpg', alt: 'C# Language', width: '100%' },
-    { src: '../assets/img/logo-cisco.jpg', alt: 'IIS Server', width: '100%' },
-    { src: '../assets/img/ps-logo.png', alt: 'C# Language', width: '100%' },
-    { src: '../assets/img/scrum-logo.png', alt: 'C# Language', width: '100%' },
+    { src: '../assets/img/logo-platzi.jpg', alt: 'Platzi', width: '100%' },
+    { src: '../assets/img/logo-cisco.jpg', alt: 'Cisco', width: '100%' },
+    { src: '../assets/img/ps-logo.png', alt: 'Adobe Photoshop', width: '100%' },
+    { src: '../assets/img/scrum-logo.png', alt: 'Scrum Fundamentals', width: '100%' },
   ];
 
   technologies: Array<technologiesModel> = [
@@ -529,8 +602,18 @@ export class AppComponent {
   btnDisabled = true;
   progressBar = 1;
   show = false;
-
+  paramsObject:any =null;
   // Event Binding
+  ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        this.language = params['language'];
+      }
+    );
+    this.numberOfProjects = this.info.languages[0].Spanish.projects.length;
+  }
+
+
   onSave() {
     console.log('Saving!');
     this.progressBar += 5;
@@ -586,4 +669,9 @@ export class AppComponent {
     console.log(id + content);
     this.info.project = id;
   }
+
+  getItemsStarred() {
+    return this.info.languages[0].Spanish?.projects.filter((item : any) => item.starred === true);
+  }
+
 }

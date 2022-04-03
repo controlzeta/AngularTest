@@ -4,75 +4,42 @@
     <div class="row">
       <div class="col-9 col-md-8 col-sm-8 col-xs-7"></div>
       <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: right">
-        <img
-          src="../assets/img/mexico.png"
-          (click)="changeLanguage('Spanish')"
-          alt="spanish"
-          class="language"
-          [ngbTooltip]="'Español'"
-          [ngClass]="{ active: language == 'Spanish' }"
-        />
+        <img src="../assets/img/mexico.png" (click)="changeLanguage('Spanish')" alt="spanish" class="language"
+          [ngbTooltip]="'Español'" [ngClass]="{ active: language == 'Spanish' }" />
       </div>
       <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: left">
-        <img
-          src="../assets/img/english.png"
-          (click)="changeLanguage('English')"
-          alt="english"
-          class="language"
-          [ngbTooltip]="'English'"
-          [ngClass]="{ active: language == 'English' }"
-        />
+        <img src="../assets/img/english.png" (click)="changeLanguage('English')" alt="english" class="language"
+          [ngbTooltip]="'English'" [ngClass]="{ active: language == 'English' }" />
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xl-4 col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <img
-        src="{{ imageSrc }}"
-        class="card-img rounded mx-auto d-block"
-        alt="{{ name }}"
-      />
+      <img src="{{ imageSrc }}" class="card-img rounded mx-auto d-block" [ngbTooltip]="name + ' | ' + charge" alt="{{ name }}" />
       <h1 class="text-center">{{ name }}</h1>
       <h2 class="text-center">{{ charge }}</h2>
       <div class="container">
         <p class="text-md-start charge">{{ description }}</p>
       </div>
       <div id="links">
-        <div
-          class="divLinks"
-          *ngFor="let l of links; index as i"
-          class="col-md-12"
-        >
-          <a
-            target="_blank"
-            rel="noopener"
-            href="{{ l.href }}"
-            [style.color]="l.color"
-          >
+        <div class="divLinks" *ngFor="let l of links; index as i" class="col-md-12">
+          <a target="_blank" rel="noopener" href="{{ l.href }}" [style.color]="l.color">
             <span class="fa-stack fa-lg" [style.margin-right.px]="4">
               <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="{{ l.class }}"></i> </span
-            >{{ l.text }}
+              <i class="{{ l.class }}"></i> </span>{{ l.text }}
           </a>
         </div>
       </div>
-      <div
-        class="line-error"
-        [ngClass]="{
+      <div class="line-error" [ngClass]="{
           valid: inputName.valid,
           invalid: !inputName.valid
-        }"
-        style="display: none"
-      ></div>
+        }" style="display: none"></div>
       <div id="stack">
         <div class="row">
           <h2 class="text-center">Stack</h2>
         </div>
         <div class="row">
-          <div
-            *ngFor="let t of stack; index as i"
-            class="col-md-3 col-sm-4 col-xs-4"
-          >
+          <div *ngFor="let t of stack; index as i" class="col-md-3 col-sm-4 col-xs-4">
             <div [ngbTooltip]="t.alt">
               <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
             </div>
@@ -84,10 +51,7 @@
           <h2 class="text-center">Courses And Certifications</h2>
         </div>
         <div class="row">
-          <div
-            *ngFor="let t of coursesAndCerts; index as i"
-            class="col-md-3 col-sm-4 col-xs-4"
-          >
+          <div *ngFor="let t of coursesAndCerts; index as i" class="col-md-3 col-sm-4 col-xs-4">
             <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
           </div>
         </div>
@@ -100,21 +64,13 @@
             <div class="col-lg-12 col-xs-12">
               <h3 class="text-center">Timeline</h3>
               <ul class="timeline">
-                <li
-                  *ngFor="
+                <li *ngFor="
                     let t of info.languages[0].Spanish?.projects;
                     index as i
-                  "
-                  [ngClass]="{ 'timeline-inverted': (i + 1) % 2 == 0 }"
-                >
+                  " [ngClass]="{ 'timeline-inverted': (i + 1) % 2 == 0 }">
                   <div class="timeline-image">
-                    <img
-                      (click)="open(t,content)"
-                      [ngbTooltip]="t.consultant + ' - ' + t.charge"
-                      class="img-circle img-responsive icon"
-                      src="{{ t.logo }}"
-                      alt=""
-                    />
+                    <img (click)="open(t,content)" [ngbTooltip]="t.consultant + ' - ' + t.charge"
+                      class="img-circle img-responsive icon" src="{{ t.logo }}" alt="" />
                   </div>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -124,12 +80,12 @@
                       </h4>
                     </div>
                     <div class="timeline-body">
-                      <p class="text-muted">
+                      <p class="text-muted abstract">
                         {{ t.abstract }}
                       </p>
                     </div>
                   </div>
-                  <div [ngClass]="{ line: i + 1 < 7 }" class=""></div>
+                  <div [ngClass]="{ line: i + 1 < numberOfProjects }" class=""></div>
                 </li>
               </ul>
             </div>
@@ -137,18 +93,8 @@
         </div>
         <div id="formsTest" style="display: none">
           <div class="col">
-            Name:<input
-              type="text"
-              name="name"
-              #inputName="ngModel"
-              [(ngModel)]="name"
-              required
-            />
-            <p
-              class="message-error"
-              name="defaultSwitch"
-              [class.invalid]="!inputName.valid"
-            >
+            Name:<input type="text" name="name" #inputName="ngModel" [(ngModel)]="name" required />
+            <p class="message-error" name="defaultSwitch" [class.invalid]="!inputName.valid">
               El nombre es requerido
             </p>
             <div [ngSwitch]="name">
@@ -160,8 +106,7 @@
           <button [disabled]="btnDisabled" (click)="onSave()">Boton</button>
           <button (click)="toggleButton()">Toggle</button>
           <div *ngIf="show">
-            <progress max="100" value="{{ progressBar }}"></progress
-            ><label>{{ progressBar }}%</label>
+            <progress max="100" value="{{ progressBar }}"></progress><label>{{ progressBar }}%</label>
             <a target="_blank" href="{{ imageSrc }}">Link</a>
             <div class="box" (scroll)="onScroll($event)">
               <p>{{ description }}</p>
@@ -193,48 +138,22 @@
               Ya no sabes ninguna tecnología
             </li>
             <li *ngFor="let t of technologies; index as i">
-              <label
-                >{{ i }}.- {{ t.ramo }} | {{ t.nivel }} |
-                {{ t.utilerias }}</label
-              >
+              <label>{{ i }}.- {{ t.ramo }} | {{ t.nivel }} |
+                {{ t.utilerias }}</label>
               <button (click)="deleteTech(i)">Delete Tech</button>
             </li>
           </ul>
           <button (click)="addTech()">Add Tech</button>
-          <input
-            #inputNewTech="ngModel"
-            name="inputNewTech"
-            [(ngModel)]="newTech"
-            required
-            type="text"
-          />
+          <input #inputNewTech="ngModel" name="inputNewTech" [(ngModel)]="newTech" required type="text" />
         </div>
         <div id="Projects" class="col-12">
+          <h2>Projects</h2>
           <div class="row">
-            <h2>Projects</h2>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <img
-                src="../assets/img/portafolio-iConfianza2020.png"
-                class="project"
-                style="width: 100%; height: auto; padding-bottom: 1em"
-                [ngbTooltip]="'iConfianza | Chubb'"
-              />
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <img
-                src="../assets/img/portafolio-c3-c3llpoint.png"
-                class="project"
-                style="width: 100%; height: auto; padding-bottom: 1em"
-                [ngbTooltip]="'C3 | Cellpoint'"
-              />
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <img
-                src="../assets/img/portafolio-procadist.jpg"
-                class="project"
-                style="width: 100%; height: auto; padding-bottom: 1em"
-                [ngbTooltip]="'Observatorio del Trabajo | X1 México'"
-              />
+            <div *ngFor="
+            let t of getItemsStarred();
+            index as i" class="col-4 col-md-4 col-sm-4 col-xs-4">
+                <img src={{t.projectImg}} class="project" [ngbTooltip]="t.charge" (click)="open(t,content)">
+
             </div>
           </div>
         </div>
@@ -247,10 +166,7 @@
             <h2>{{ info.recomendations }}</h2>
           </div>
         </div>
-        <div
-          *ngFor="let c of info.clientes; index as i"
-          class="col-md-3 col-sm-4 col-xs-12"
-        >
+        <div *ngFor="let c of info.clientes; index as i" class="col-md-3 col-sm-4 col-xs-12">
           <div class="p-3">
             <h3>{{ c.nombre }}</h3>
             <div class="testimonio">
@@ -271,44 +187,21 @@
       <form (ngSubmit)="onRegister()" #MyForm="ngForm">
         <div class="input-group">
           <label for="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="registerName"
-            required
-            [(ngModel)]="register.name"
-            class="form-control"
-          />
+          <input type="text" id="name" name="registerName" required [(ngModel)]="register.name" class="form-control" />
           <p></p>
         </div>
         <div class="input-group">
           <label for="name">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="registerEmail"
-            required
-            [(ngModel)]="register.email"
-            class="form-control"
-          />
+          <input type="email" id="email" name="registerEmail" required [(ngModel)]="register.email"
+            class="form-control" />
         </div>
         <div class="input-group">
           <label for="password">Password:</label>
-          <input
-            type="password"
-            id="name"
-            name="registerPassword"
-            required
-            [(ngModel)]="register.password"
-            class="form-control"
-          />
+          <input type="password" id="name" name="registerPassword" required [(ngModel)]="register.password"
+            class="form-control" />
         </div>
         <div>
-          <button
-            type="submit"
-            [disabled]="MyForm.invalid"
-            class="btn btn-primary"
-          >
+          <button type="submit" [disabled]="MyForm.invalid" class="btn btn-primary">
             Registrar
           </button>
           <button type="button" class="btn btn-secondary">Otro Botón</button>
@@ -316,34 +209,20 @@
       </form>
     </div>
   </div>
-  <div
-    class="modal fade"
-    id="exampleModalToggle"
-    aria-hidden="true"
-    aria-labelledby="exampleModalToggleLabel"
-    tabindex="-1"
-  >
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           Show a second modal and hide this one with the button below.
         </div>
         <div class="modal-footer">
-          <button
-            class="btn btn-primary"
-            data-bs-target="#exampleModalToggle2"
-            data-bs-toggle="modal"
-            data-bs-dismiss="modal"
-          >
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+            data-bs-dismiss="modal">
             Open second modal
           </button>
         </div>
@@ -355,20 +234,11 @@
       <h4 class="modal-title" id="modal-basic-title">
         {{ info.project.charge }}
       </h4>
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="d('Cross click')"
-      ></button>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
     </div>
     <div class="modal-body">
       <div class="d-flex position-relative">
-        <img
-          src="{{ info.project.logo }}"
-          class="flex-shrink-0 me-3"
-          alt="{{ info.project.consultant }}"
-        />
+        <img src="{{ info.project.logo }}" class="flex-shrink-0 me-3" alt="{{ info.project.consultant }}" />
         <div>
           <h4 class="mt-0">{{ info.project.consultant }}</h4>
           <h5 class="mt-0">
@@ -377,25 +247,20 @@
           <p>{{ info.project.abstract }}</p>
           <hr />
           <h6>Actividades</h6>
-          <ul
-            *ngFor="let c of info.project.activities; index as i"
-            class="col-12"
-          >
+          <ul *ngFor="let c of info.project.activities; index as i" class="col-12">
             <li class="">
               <i class="fa fa-terminal" style="font-size: 1.2em; font-weight:bold;"></i>&nbsp;&nbsp;{{ c.activity }}
             </li>
           </ul>
           <hr />
           <h6>Conocimientos</h6>
-          <div
-            *ngFor="let c of info.project.knowledge; index as i"
-            class="col-12"
-          >
+          <div *ngFor="let c of info.project.knowledge; index as i" class="col-12">
             <div class="col-12">
               <label>{{ c.knowing }} </label>
               <!-- <progress max="100" class="progress-bar" value="{{c.percentage}}" [style.color]="c.color" ></progress> -->
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 100%;" (aria-valuenow)="c.percentage" aria-valuemin="0" aria-valuemax="100">{{c.percentage}} %</div>
+                <div class="progress-bar" role="progressbar" style="width: 100%;" (aria-valuenow)="c.percentage"
+                  aria-valuemin="0" aria-valuemax="100">{{c.percentage}} %</div>
               </div>
             </div>
           </div>

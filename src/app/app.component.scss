@@ -36,7 +36,7 @@ img {
 
 .language.active{
   box-shadow: #121314;
-  transition: width 1s, height 1s;
+  transition: width .5s, height .5s;
   height: 38px;
 }
 
@@ -70,6 +70,10 @@ ul {
   text-align: center;
 }
 
+.abstract{
+  text-overflow: ellipsis;
+}
+
 #stack,
 #Courses,
 #links,
@@ -92,6 +96,10 @@ ul {
   height: auto;
   width: 110%;
   // margin: 1%;
+}
+
+.project{
+  width: 100%; height: auto; padding-bottom: 1em
 }
 
 .project:hover{
