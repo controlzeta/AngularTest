@@ -276,7 +276,7 @@ export class AppComponent implements OnInit {
               id: '07',
               charge: 'Full Stack .Net Web Developer',
               logo: '../assets/img/freelancer.png',
-              consultant: 'Freelance -',
+              consultant: 'Freelance - C3llpoint',
               startDate: 'Diciembre 2020',
               endDate: 'Diciembre 2021',
               dates: [{ startDate: '01/12/2020', endDate: '01/12/2021' }],
@@ -285,36 +285,26 @@ export class AppComponent implements OnInit {
               abstract:
                 'Mantenimiento de Sistemas Financieros y Creación de nuevos módulos, Repositorio de Documentos, Implementación de Wiki para soportar documentación y lecciones aprendidas, tecnologías C# Framework 4 - 4.5 MVC, Angular JS, ASPX, Oracle (Store Procedures), SQL Server 2014, Ajax, Bootstrap, Jquery, CSS 3.0, Internacionalización.',
               activities: [
-                { activity: 'Creación de modulos nuevos' },
+                { activity: 'Diseño de Base de Datos Relacional' },
                 {
                   activity:
-                    "Implementación de servicios de calificadora financiera Moody's",
+                    "Implementación de Manejador de Usuarios",
                 },
                 {
                   activity:
-                    'Implementación de servicios de Identificación de riesgos (World Check, ICC Compliance Link)',
+                    'Implementación de Colores y Diseño de Interfaz de acuerdo los lineamientos del cliente',
                 },
                 {
                   activity:
-                    'Implementación de Pruebas de Usabilidad con Hotjar',
+                    'Liberación y puesta en producción en SmartASP Hosting',
                 },
                 {
                   activity:
-                    'Implementación de recopilador de documentación WikiMedia',
+                    'Creación de WebAPI y consumo ',
                 },
-                { activity: 'Repositorio de Documentos' },
-                { activity: 'Reparación y Mantenimiento de Core Financiero' },
-                { activity: 'Consumo de Web Services SOAP, WCF y REST' },
-                {
-                  activity:
-                    'Creación y Uso de Funciones y Store Procedures SQL Server y Oracle',
-                },
-                { activity: 'Manejo de versionamiento TFS' },
-                {
-                  activity:
-                    'Creación de Reportes Dinámicos con ChartJS, Typeahead y Web API',
-                },
-                { activity: 'Kendo, Angular JS,jQuery, JSON, Ajax y CSS3 ' },
+                { activity: 'Implementación de DatatableJS' },
+                { activity: 'Implementación de Log4Net' },
+                { activity: 'Implementación de Google Maps' }
               ],
               knowledge: [
                 {
@@ -322,9 +312,9 @@ export class AppComponent implements OnInit {
                   color: 'purple',
                   percentage: 80,
                 },
-                { knowing: 'Mantenimiento', color: 'purple', percentage: 90 },
-                { knowing: 'Rebranding', color: 'purple', percentage: 90 },
-                { knowing: 'Versionamiento', color: 'red', percentage: 80 },
+                { knowing: 'Creación y Diseño de Plataforma', color: 'purple', percentage: 90 },
+                { knowing: 'Google Maps', color: 'purple', percentage: 90 },
+                { knowing: 'Versionamiento y Deploy', color: 'red', percentage: 80 },
                 { knowing: 'Diseño Web', color: 'green', percentage: 95 },
               ],
             },
@@ -419,6 +409,308 @@ export class AppComponent implements OnInit {
                 'An excellent element and with a capacity above the average.',
               imagen: '../assets/img/logo-chubb-2.png',
             },
+
+          ],
+          projects: [
+            {
+              id: '01',
+              charge: 'Web Design and Webmaster',
+              logo: 'assets/img/freelancer.png',
+              consultant: 'Freelance',
+              startDate: 'June 2011',
+              endDate: 'Present',
+              dates: [{ startDate: '01/06/2011', endDate: 'Today' }],
+              starred: false,
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
+              abstract:
+                'Design, Development, Implementation and maintenance of web pages for end customers, in CMS or HTML5 from scratch',
+              activities: [
+                { activity: 'Gathering and analysis of requirements' },
+                { activity: 'Design proposal (Mockups, Wireframes))' },
+                { activity: 'HTML Layout Design' },
+                {
+                  activity:
+                    'Implementation of CMS (Joomla, Wordpress), eCommerce (Prestashop and Magento) and LCMS (Moodle)',
+                },
+                { activity: 'SEO  and Google Analytics' },
+                { activity: 'Creation and connection of Social Media profiles' },
+              ],
+              knowledge: [
+                { knowing: 'PHP', color: 'purple', percentage: 60 },
+                { knowing: 'HTML5', color: 'red', percentage: 95 },
+                { knowing: 'CMS', color: 'red', percentage: 85 },
+                { knowing: 'SEO', color: 'green', percentage: 78 },
+              ],
+            },
+            {
+              id: '02',
+              charge: ' .Net  Developer',
+              logo: 'assets/img/ecommerce.png',
+              consultant: 'CAMEBRA',
+              startDate: 'April 2011',
+              endDate: 'February 2013',
+              dates: [{ startDate: '01/04/2011', endDate: '01/02/2013' }],
+              starred: false,
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
+              abstract:
+                'Partake in the realization of a web system for sales of technological products in ASP.NET 4, CSS 2.1 Style Sheets, Jquery and SQL Server 2008 R2 Database Engine with sqlclient objects. I also gave support to other applications which had technologies such as: Entity Framework, Webservices and RIA Services WCF, Silverlight.',
+              activities: [
+                { activity: 'Web Development' },
+                { activity: 'Participation in Analysis and Implementation' },
+                { activity: 'Web Design' },
+                { activity: 'Application Support' },
+              ],
+              knowledge: [
+                { knowing: 'ASP.NET 4', color: 'purple', percentage: 60 },
+                { knowing: 'CSS 2.1', color: 'red', percentage: 65 },
+                { knowing: 'WCF', color: 'red', percentage: 65 },
+                {
+                  knowing: ' Entity Framework',
+                  color: 'green',
+                  percentage: 65,
+                },
+              ],
+            },
+            {
+              id: '03',
+              charge: '.Net C# Developer',
+              logo: 'assets/img/government.png',
+              consultant: 'INAI - Indra',
+              startDate: 'March 2013',
+              endDate: 'January 2014',
+              dates: [{ startDate: '01/03/2013', endDate: '01/01/2014' }],
+              starred: false,
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
+              abstract:
+                'Partake in the realization of a Portal for receiving complaints that included NHibernate Fluent technologies with SQL Server 2008, in ASP .NET 4.0 Framework, CSS, Ajax and JQuery, connected to several SAP CRM systems, SAP BW-BI and Open Text as document repository through Web Service',
+              activities: [
+                { activity: 'Web Development ASP .NET' },
+                { activity: 'Participation in Analysis and Implementation' },
+                { activity: 'Web Design' },
+                { activity: 'OWASP' },
+                {
+                  activity:
+                    'System Integration through Web Services (SOAP and WCF)',
+                },
+                { activity: 'Existing Application Support' },
+                { activity: 'MAAGTIC Documentation' },
+              ],
+              knowledge: [
+                {
+                  knowing: '.Net Framework 4.0',
+                  color: 'purple',
+                  percentage: 80,
+                },
+                { knowing: 'nHibernate', color: 'red', percentage: 68 },
+                { knowing: 'Web Services', color: 'red', percentage: 95 },
+                { knowing: 'MAAGTIC', color: 'green', percentage: 80 },
+              ],
+            },
+            {
+              id: '04',
+              charge: 'MVC .Net Development',
+              logo: 'assets/img/banking.png',
+              consultant: 'Unifin Financiera',
+              startDate: 'March 2014',
+              endDate: 'July 2014',
+              dates: [{ startDate: '01/03/2014', endDate: '01/07/2014' }],
+              starred: false,
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
+              abstract:
+                'Collaborate in the migration of a Desktop Financial System in Visual Basic 6.0 and 2010 to a Web Platform with Responsive Design, in MVC architecture in C# language that included SQL Server 2008 technologies, in ASP .NET 4.0 Framework, CSS3, JSON , Bootstrap, Ajax and JQuery. With functions such as: Financial calculations, file reading, Crystal Reports packaging and communication with Dynamics.',
+              activities: [
+                { activity: 'Migrating VB .Net 6.0 to Web MVC C# Framework 4.0'},
+                { activity: 'Participation in Analysis and Implementation' },
+                { activity: 'Layout in Responsive Design (Bootstrap)' },
+                { activity: 'jQuery, JSON, Ajax and CSS3 ' },
+                { activity: 'Crystal Reports' },
+              ],
+              knowledge: [
+                {
+                  knowing: '.Net Framework 4.0',
+                  color: 'purple',
+                  percentage: 95,
+                },
+                { knowing: 'Jquery', color: 'red', percentage: 95 },
+                { knowing: 'AJAX y Json', color: 'red', percentage: 80 },
+                {
+                  knowing: 'Responsive Design',
+                  color: 'green',
+                  percentage: 80,
+                },
+              ],
+            },
+            {
+              id: '05',
+              charge: '.Net Front End Developer',
+              logo: 'assets/img/travel.png',
+              consultant: 'Gonet - Consolid',
+              startDate: 'August 2014',
+              endDate: 'June 2015',
+              dates: [{ startDate: '01/08/2014', endDate: '01/06/2015' }],
+              starred: false,
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
+              abstract:
+                'Design and implementation of User Administration, Security, Flight Search Engine (Sabre, Navitaire, Volaris), Design Change to Responsive Design (Bootstrap), Web Services Consumption (SOAP, WCF), 3 Layer Architecture, SQL Server 2012 with Entity Framework, CSS3, jQuery.',
+              activities: [
+                {
+                  activity:
+                    'Design and Implementation of User Manager',
+                },
+                { activity: 'Participation in Analysis and Implementation' },
+                { activity: 'Security Implementation (Simple Membership)' },
+                {
+                  activity:
+                    'Webservices Consumption ( Sabre, Navitaire 3.0 y 4.0 )',
+                },
+                { activity: 'Responsive Design with Bootstrap' },
+                { activity: 'jQuery, JSON, Ajax and CSS3 ' },
+              ],
+              knowledge: [
+                { knowing: 'Web Services', color: 'purple', percentage: 95 },
+                { knowing: 'Security', color: 'red', percentage: 95 },
+                { knowing: 'Web Design', color: 'green', percentage: 95 },
+              ],
+            },
+            {
+              id: '06',
+              charge: 'Full Stack Web Developer',
+              logo: 'assets/img/government.png',
+              consultant: 'X1 México',
+              startDate: 'June 2015',
+              endDate: 'December 2016',
+              dates: [{ startDate: '01/06/2015', endDate: '01/12/2016' }],
+              starred: true,
+              projectImg: "../assets/img/portafolio-procadist.jpg",
+              abstract:
+                'Programming in C# Language (Framework 4), PHP for the Web platform, HTML5 Layout, MVC, Layers, Web API, specialized in Front End and Responsive Design, SQL Server 2014, 2012, 2008 R2 Databases, MySQL and Desserts 9.4, Azure and CentOS server management. Implementation, Integration and Configuration of CMS (WordPress and Joomla), development of functionality in existing system in AngularJS, Configuration and repair of LCMS (Learning Content Management System) Moodle',
+              activities: [
+                { activity: 'Joomla Integration with .NET' },
+                {
+                  activity:
+                    'Implementation of CMS (Joomla, Wordpress) and LCMS (Moodle)',
+                },
+                { activity: 'WebAPI consumption' },
+                { activity: 'Layout using Bootstrap and MaterializeCSS' },
+                { activity: 'Server management: Azure and CentOs' },
+                { activity: 'jQuery, JSON, Ajax and CSS3 ' },
+              ],
+              knowledge: [
+                { knowing: 'WebAPI', color: 'purple', percentage: 80 },
+                {
+                  knowing: 'Configuration and setup of CMS',
+                  color: 'purple',
+                  percentage: 90,
+                },
+                {
+                  knowing: 'Server Managment',
+                  color: 'red',
+                  percentage: 80,
+                },
+                { knowing: 'Web Design', color: 'green', percentage: 95 },
+              ],
+            },
+            {
+              id: '07',
+              charge: 'Full Stack .Net Web Developer',
+              logo: '../assets/img/freelancer.png',
+              consultant: 'Freelance - C3llpoint',
+              startDate: 'December 2020',
+              endDate: 'December 2021',
+              dates: [{ startDate: '01/12/2020', endDate: '01/12/2021' }],
+              starred: true,
+              projectImg: "../assets/img/portafolio-c3-c3llpoint.png",
+              abstract:
+                'Creation of a system for an Insurer in cell phone mode, built on Core .NET 3.1 and MVC with SQL Server Databases, with KnoackoutJs, Bootstrap, Reporting Services. Implementation of Web API to integrate with partners and customers.',
+              activities: [
+                { activity: 'Relational Database Design' },
+                {
+                  activity:
+                    'User Manager Implementation'
+                },
+                {
+                  activity: "Implementation of Colors and Interface Design according to the client's guidelines"
+                },
+                {
+                  activity:
+                    'Release to production in SmartASP Hosting'
+                },
+                {
+                  activity:
+                    'WebAPI creation and consumption'
+                },
+                { activity: 'DatatableJS Implementation' },
+                { activity: 'Log4Net Implementation' },
+                { activity: 'Google Maps Implementation' }
+              ],
+              knowledge: [
+                {
+                  knowing: 'Web Services and Web API',
+                  color: 'purple',
+                  percentage: 80,
+                },
+                { knowing: 'Platform Creation and Design', color: 'purple', percentage: 90 },
+                { knowing: 'Google Maps', color: 'purple', percentage: 90 },
+                { knowing: 'version Control and Deploy', color: 'red', percentage: 80 },
+                { knowing: 'Web Design', color: 'green', percentage: 95 },
+              ],
+            },
+            {
+              id: '08',
+              charge: 'Full Stack .Net Web Developer',
+              logo: 'assets/img/insurance.png',
+              consultant: 'Gonet - CHUBB Actualidad',
+              startDate: 'Diciembre 2016',
+              endDate: 'Present',
+              dates: [{ startDate: '15/12/2016', endDate: '29/09/2017' }],
+              starred: true,
+              projectImg: "../assets/img/portafolio-iConfianza2020.png",
+              abstract:
+                'Maintenance of Financial / Insurance Systems and Creation of new modules, Document Repository, Wiki Implementation to support documentation and lessons learned, C# Framework 4 - 4.5 MVC technologies, Angular JS, ASPX, Oracle (Store Procedures), SQL Server 2014, Ajax , Bootstrap, Jquery, CSS 3.0, Internationalization.',
+              activities: [
+                { activity: 'New Module Creation' },
+                {
+                  activity:
+                    "Implementation of Moody's financial rating services",
+                },
+                {
+                  activity:
+                    'Implementation of risk identification services (World Check, ICC Compliance Link)',
+                },
+                {
+                  activity:
+                    'Implementation of Usability Testing with Hotjar',
+                },
+                {
+                  activity:
+                    'WikiMedia Documentation Collector Implementation',
+                },
+                { activity: 'Document Repository' },
+                { activity: 'Repair and Maintenance of Insurance Core' },
+                { activity: 'Consumo de Web Services SOAP, WCF y REST' },
+                {
+                  activity:
+                    'Creation and Use of Functions and Store Procedures SQL Server and Oracle',
+                },
+                { activity: 'Version Control (TFS and DevOps)' },
+                {
+                  activity:
+                    'Creation of Dynamic Reports with ChartJS, Typeahead and Web API',
+                },
+                { activity: 'Kendo, Angular JS,jQuery, JSON, Ajax and CSS3 ' },
+              ],
+              knowledge: [
+                {
+                  knowing: 'Web Services and Web API',
+                  color: 'purple',
+                  percentage: 80,
+                },
+                { knowing: 'Support', color: 'purple', percentage: 90 },
+                { knowing: 'Rebranding', color: 'purple', percentage: 90 },
+                { knowing: 'Version Control', color: 'red', percentage: 80 },
+                { knowing: 'New Modules', color: 'green', percentage: 95 },
+              ],
+            }
           ],
         },
       },
@@ -452,6 +744,38 @@ export class AppComponent implements OnInit {
         { knowing: 'SEO', color: 'green', percentage: '78' },
       ],
     },
+    projects: [
+      {
+        id: '01',
+        charge: 'Diseño Web y Webmaster',
+        logo: 'assets/img/freelancer.png',
+        consultant: 'Freelance',
+        startDate: 'Junio 2011',
+        endDate: 'Actualidad',
+        dates: [{ startDate: '01/06/2011', endDate: 'Today' }],
+        starred: false,
+        projectImg: "../assets/img/portafolio-iConfianza2020.png",
+        abstract:
+          'Diseño, Desarrollo, Implementación y mantenimiento de páginas web para clientes finales, en CMS o HTML5 desde cero ',
+        activities: [
+          { activity: 'Levantamiento  y Analísis de requerimientos' },
+          { activity: 'Propuesta de Diseño (Mockups, Wireframes))' },
+          { activity: 'Maquetado' },
+          {
+            activity:
+              'Implementación de CMS (Joomla, Wordpress), eCommerce (Prestashop y Magento) y LCMS (Moodle)',
+          },
+          { activity: 'SEO  y Google Analytics' },
+          { activity: 'Creación y conexión de perfiles de Social Media' },
+        ],
+        knowledge: [
+          { knowing: 'PHP', color: 'purple', percentage: 60 },
+          { knowing: 'HTML5', color: 'red', percentage: 95 },
+          { knowing: 'CMS', color: 'red', percentage: 85 },
+          { knowing: 'SEO', color: 'green', percentage: 78 },
+        ],
+      }
+    ],
     clientes: [
       {
         nombre: 'Octavio Rivas',
@@ -540,6 +864,7 @@ export class AppComponent implements OnInit {
     { src: '../assets/img/css-logo.png', alt: 'CSS 3.0', width: '100%' },
     { src: '../assets/img/jquery-logo.jpg', alt: 'jQuery', width: '100%' },
     { src: '../assets/img/bootstrap.jpg', alt: 'Bootstrap', width: '100%' },
+    { src: '../assets/img/angular.png', alt: 'AngularJS', width: '100%' },
     {
       src: '../assets/img/azure-devops.png',
       alt: 'Azure',
@@ -548,7 +873,7 @@ export class AppComponent implements OnInit {
   ];
 
   coursesAndCerts: Array<imagesModel> = [
-    { src: '../assets/img/logo-platzi.jpg', alt: 'Platzi', width: '100%' },
+    { src: '../assets/img/logo-platzi.jpg', alt: 'Platzi', href:'https://platzi.com/p/pakito555', width: '100%' },
     { src: '../assets/img/logo-cisco.jpg', alt: 'Cisco', width: '100%' },
     { src: '../assets/img/ps-logo.png', alt: 'Adobe Photoshop', width: '100%' },
     { src: '../assets/img/scrum-logo.png', alt: 'Scrum Fundamentals', width: '100%' },
@@ -618,6 +943,7 @@ export class AppComponent implements OnInit {
       }
       );
     this.numberOfProjects = this.info.languages[0].Spanish.projects.length;
+    this.changeLanguage(this.language);
   }
 
 
@@ -664,10 +990,12 @@ export class AppComponent implements OnInit {
       this.description = this.info.languages[0].Spanish?.description;
       this.info.clientes = this.info.languages[0].Spanish?.clients;
       this.info.recomendations = this.info.languages[0].Spanish?.recomendations;
+      this.info.projects = this.info.languages[0].Spanish?.projects;
     } else {
       this.description = this.info.languages[0].English?.description;
       this.info.clientes = this.info.languages[0].English.clients;
       this.info.recomendations = this.info.languages[0].English?.recomendations;
+      this.info.projects = this.info.languages[0].English?.projects;
     }
   }
 
@@ -693,12 +1021,18 @@ export class AppComponent implements OnInit {
   getClass(index: any) {
     switch (index) {
       case 1:
+      case 5:
+      case 9:
         return "info";
       case 2:
+      case 6:
+      case 10:
         return "success";
       case 3:
+      case 7:
         return "warning";
       case 4:
+      case 8:
         return "danger";
       default:
         return "primary";
