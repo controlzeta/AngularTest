@@ -5,10 +5,12 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ImgComponent } from './components/img/img.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImgComponent
   ],
   imports: [
     BrowserModule,

@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
     progBar.height = '20px';
   }
 
+  imgParent = 'https://pakoarroyo.controlzeta.com.mx/img/github-jedi-logo.jpg';
   language = '';
   numberOfProjects = 0;
 
@@ -1037,5 +1038,9 @@ export class AppComponent implements OnInit {
       default:
         return "primary";
     }
+  }
+
+  onLoaded(img: string){
+    console.log('Load Padre ' + img);
   }
 }

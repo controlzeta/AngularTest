@@ -27,12 +27,14 @@
   </div>
   <div class="row">
     <div class="col-xl-4 col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <img
+      <input type="text" [(ngModel)]="imgParent" style="display:block;" />
+      <app-img (loaded)="onLoaded($event)" [img]="imgParent" class="card-img rounded mx-auto d-block" [ngbTooltip]="name + ' | ' + charge" ></app-img>
+      <!-- <img
         src="{{ imageSrc }}"
         class="card-img rounded mx-auto d-block"
         [ngbTooltip]="name + ' | ' + charge"
         alt="{{ name }}"
-      />
+      /> -->
       <h1 class="text-center">{{ name }}</h1>
       <h2 class="text-center">{{ charge }}</h2>
       <div class="container">
