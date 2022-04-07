@@ -27,8 +27,14 @@
   </div>
   <div class="row">
     <div class="col-xl-4 col-lg-3 col-md-3 col-sm-3 col-xs-12">
-      <input type="text" [(ngModel)]="imgParent" style="display:block;" />
-      <app-img (loaded)="onLoaded($event)" [img]="imgParent" class="card-img rounded mx-auto d-block" [ngbTooltip]="name + ' | ' + charge" ></app-img>
+      <!-- <button (click)="toggleImage()" >Toggle Image</button>
+      <input type="text" [(ngModel)]="imgParent" style="display: block" /> -->
+      <app-img *ngIf="showImage"
+        (loaded)="onLoaded($event)"
+        [img]="imgParent"
+        class="card-img rounded mx-auto d-block"
+        [ngbTooltip]="name + ' | ' + charge"
+      ></app-img>
       <!-- <img
         src="{{ imageSrc }}"
         class="card-img rounded mx-auto d-block"
@@ -72,14 +78,10 @@
           <h2 class="text-center">Stack</h2>
         </div>
         <div class="row">
-          <div
+          <app-stack class="col-md-3 col-sm-4 col-xs-4"
             *ngFor="let t of stack; index as i"
-            class="col-md-3 col-sm-4 col-xs-4"
-          >
-            <div [ngbTooltip]="t.alt + ' ' + t.years + ' years'">
-              <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
-            </div>
-          </div>
+            [myStack]="t"
+          ></app-stack>
         </div>
       </div>
       <div id="Courses">
@@ -116,10 +118,7 @@
               <h3 class="text-center">Timeline</h3>
               <ul class="timeline">
                 <li
-                  *ngFor="
-                    let t of info.projects;
-                    index as i
-                  "
+                  *ngFor="let t of info.projects; index as i"
                   [ngClass]="{ 'timeline-inverted': (i + 1) % 2 == 0 }"
                 >
                   <div class="timeline-image">

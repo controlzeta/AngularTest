@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { technologiesModel } from './models/technologiesModel.model';
-import { imagesModel } from './models/imagesModel.modet';
+import { imagesModel } from './models/imagesModel.model';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   imgParent = 'https://pakoarroyo.controlzeta.com.mx/img/github-jedi-logo.jpg';
   language = '';
   numberOfProjects = 0;
-
+  showImage = true;
   info = {
     languages: [
       {
@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
               starred: false,
               projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
-                'Diseño, Desarrollo, Implementación y mantenimiento de páginas web para clientes finales, en CMS o HTML5 desde cero ',
+                'Diseño, Desarrollo, Implementación y mantenimiento de páginas web para clientes finales, en CMS, .Net o HTML5 desde cero.',
               activities: [
                 { activity: 'Levantamiento  y Analísis de requerimientos' },
                 { activity: 'Propuesta de Diseño (Mockups, Wireframes))' },
@@ -424,7 +424,7 @@ export class AppComponent implements OnInit {
               starred: false,
               projectImg: "../assets/img/portafolio-iConfianza2020.png",
               abstract:
-                'Design, Development, Implementation and maintenance of web pages for end customers, in CMS or HTML5 from scratch',
+                'Design, Development, Implementation and maintenance of web pages for end customers, in CMS, .Net or HTML5 from scratch',
               activities: [
                 { activity: 'Gathering and analysis of requirements' },
                 { activity: 'Design proposal (Mockups, Wireframes))' },
@@ -1042,5 +1042,9 @@ export class AppComponent implements OnInit {
 
   onLoaded(img: string){
     console.log('Load Padre ' + img);
+  }
+
+  toggleImage(){
+    this.showImage = !this.showImage;
   }
 }
