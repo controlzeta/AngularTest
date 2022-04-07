@@ -840,36 +840,36 @@ export class AppComponent implements OnInit {
   stack: Array<imagesModel> = [
     {
       src: '../assets/img/c_sharp_logo.png',
-      alt: 'C# Language',
+      alt: 'C# Language', years: 10,
       width: '100%',
     },
-    { src: '../assets/img/iis_logo.png', alt: 'IIS Server', width: '100%' },
-    { src: '../assets/img/oracle_logo.png', alt: 'Oracle', width: '100%' },
+    { src: '../assets/img/iis_logo.png', alt: 'IIS Server', years: 10, width: '100%' },
+    { src: '../assets/img/oracle_logo.png', alt: 'Oracle', years: 8, width: '100%' },
     {
       src: '../assets/img/sql_server_logo.jpg',
       alt: 'SQL Server',
-      width: '100%',
+      width: '100%', years: 8
     },
     {
       src: '../assets/img/chart-js-logo.jpg',
-      alt: 'ChartJS',
+      alt: 'ChartJS', years: 5,
       width: '100%',
     },
-    { src: '../assets/img/wcf-logo.jpg', alt: 'WCF', width: '100%' },
+    { src: '../assets/img/wcf-logo.jpg', alt: 'WCF', width: '100%', years: 8 },
     {
       src: '../assets/img/web-api-logo.jpg',
-      alt: 'Web API',
+      alt: 'Web API', years: 7,
       width: '100%',
     },
-    { src: '../assets/img/js-logo.png', alt: 'Javascript', width: '100%' },
-    { src: '../assets/img/css-logo.png', alt: 'CSS 3.0', width: '100%' },
-    { src: '../assets/img/jquery-logo.jpg', alt: 'jQuery', width: '100%' },
-    { src: '../assets/img/bootstrap.jpg', alt: 'Bootstrap', width: '100%' },
-    { src: '../assets/img/angular.png', alt: 'AngularJS', width: '100%' },
+    { src: '../assets/img/js-logo.png', alt: 'Javascript', width: '100%',  years: 8 },
+    { src: '../assets/img/css-logo.png', alt: 'CSS 3.0', width: '100%', years: 8 },
+    { src: '../assets/img/jquery-logo.jpg', alt: 'jQuery', width: '100%' , years: 8 },
+    { src: '../assets/img/bootstrap.jpg', alt: 'Bootstrap', width: '100%' , years: 8 },
+    { src: '../assets/img/angular.png', alt: 'AngularJS', width: '100%' , years: 1 },
     {
       src: '../assets/img/azure-devops.png',
       alt: 'Azure',
-      width: '100%',
+      width: '100%', years: 6
     },
   ];
 

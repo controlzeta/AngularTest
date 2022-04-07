@@ -3,4 +3,5 @@ export interface imagesModel {
     alt? : string;
     width? : string;
     href? : string;
+    years?: number;
 }
