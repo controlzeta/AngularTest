@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
   imgParent = 'https://pakoarroyo.controlzeta.com.mx/img/github-jedi-logo.jpg';
   language = '';
   numberOfProjects = 0;
+  experience = 'Experiencia';
   showImage = true;
   info = {
     languages: [
@@ -42,6 +43,9 @@ export class AppComponent implements OnInit {
           description:
             ' Soy Francisco Arroyo un desarrollador Fullstack web mexicano enfocado a C# por su rubustez, escalabilidad e interoperabilidad con otros sistemas, pero eso no es todo también he trabajado con PHP, Angular JS y VB realizando mejoras, migraciones y reparaciones de sistemas existentes. Puedo trabajar en modo freelance o por consultora.',
           recomendations: 'Recomendaciones',
+          projectHeader: 'Proyectos',
+          experience : 'Experiencia',
+          coursesHeader: 'Cursos y Certificaciones',
           clients: [
             {
               nombre: 'Octavio Rivas',
@@ -381,6 +385,9 @@ export class AppComponent implements OnInit {
           description:
             "I'm a Fullstack .Net Developer focused on C# for its hardiness, scalability and interoperability with other systems, I have also worked with PHP, Angular JS and VB making improvements, migrations and repairs of existing systems. I'm able to work in teams, remotely or on site.' I love to keep me updated on new hardware and software solutions, either through online courses, lectures, attend to webinars, read blogs or classroom courses is always better to know what new technologies you can take for your work.",
           recomendations: 'Recomendations',
+          experience : 'Experience',
+          coursesHeader: 'Courses And Certifications',
+          projectHeader: 'Projects',
           clients: [
             {
               nombre: 'Octavio Rivas',
@@ -717,6 +724,9 @@ export class AppComponent implements OnInit {
       },
     ],
     recomendations: 'Recomendaciones',
+    experience : 'Experience',
+    projectHeader: 'Projects',
+    coursesHeader: 'Projects',
     project: {
       id: '01',
       charge: 'Diseño Web y Webmaster',
@@ -871,6 +881,11 @@ export class AppComponent implements OnInit {
       alt: 'Azure',
       width: '100%', years: 6
     },
+    {
+      src: '../assets/img/git.png',
+      alt: 'git',
+      width: '100%', years: 6
+    },
   ];
 
   coursesAndCerts: Array<imagesModel> = [
@@ -989,14 +1004,18 @@ export class AppComponent implements OnInit {
     this.language = lang;
     if (lang == 'Spanish') {
       this.description = this.info.languages[0].Spanish?.description;
+      this.experience = this.info.languages[0].Spanish?.experience;
       this.info.clientes = this.info.languages[0].Spanish?.clients;
       this.info.recomendations = this.info.languages[0].Spanish?.recomendations;
       this.info.projects = this.info.languages[0].Spanish?.projects;
+      this.info.projectHeader = this.info.languages[0].Spanish?.projectHeader;
     } else {
       this.description = this.info.languages[0].English?.description;
+      this.experience = this.info.languages[0].English?.experience;
       this.info.clientes = this.info.languages[0].English.clients;
       this.info.recomendations = this.info.languages[0].English?.recomendations;
       this.info.projects = this.info.languages[0].English?.projects;
+      this.info.projectHeader = this.info.languages[0].English?.projectHeader;
     }
   }
 

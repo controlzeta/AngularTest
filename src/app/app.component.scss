@@ -175,6 +175,11 @@ ul {
   list-style: none;
 }
 
+.timeline-heading,
+.timeline-image{
+  cursor: pointer;
+}
+
 .timeline > li:nth-child(even) {
   position: relative;
   margin-bottom: 50px;

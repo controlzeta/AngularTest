@@ -115,7 +115,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 col-xs-12">
-              <h3 class="text-center">Timeline</h3>
+              <h3 class="text-center">{{experience}}</h3>
               <ul class="timeline">
                 <li
                   *ngFor="let t of info.projects; index as i"
@@ -131,7 +131,7 @@
                     />
                   </div>
                   <div class="timeline-panel">
-                    <div class="timeline-heading">
+                    <div class="timeline-heading" (click)="open(t, content)" >
                       <h4>{{ t.charge }}</h4>
                       <h4 class="subheading">
                         {{ t.consultant }} | {{ t.startDate }} - {{ t.endDate }}
@@ -227,7 +227,7 @@
           />
         </div>
         <div id="Projects" class="col-12">
-          <h2>Projects</h2>
+          <h2>{{this.info.projectHeader}}</h2>
           <div class="row">
             <div
               *ngFor="let t of getItemsStarred(); index as i"
