@@ -61,9 +61,8 @@ export class CurriculumServiceService {
   myTechs$ = this.myTechs.asObservable();
 
   constructor(private http: HttpClient) {
-  }
 
-  ngOnInit() { }
+  }
 
   getTechnologies() {
     return this.technologies;

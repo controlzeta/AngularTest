@@ -20,8 +20,8 @@ export class ImgComponent
   implements OnInit, OnChanges, AfterViewInit, OnDestroy
 {
   // @Input() img: string = 'init';
-
-  @Input('img') set img(newImg:string){
+  
+  @Input() set img(newImg:string){
     this.imageDefault = newImg;
     console.log("The Image has changed" + this.imageDefault)
   }

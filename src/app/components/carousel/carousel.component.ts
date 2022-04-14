@@ -12,7 +12,7 @@ export class CarouselComponent implements OnInit {
   // images = ["../assets/img/portafolio-iConfianza2020.png","../assets/img/portafolio-procadist.jpg", "../assets/img/portafolio-c3-c3llpoint.png"]
 
   @Input() images:any;
-  @Output() loaded = new EventEmitter<any>();
+  @Output() clickOutput = new EventEmitter<any>();
   
   paused = false;
   unpauseOnArrow = false;
@@ -28,6 +28,7 @@ export class CarouselComponent implements OnInit {
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel | undefined;
 
   ngOnInit(): void {
+    this.carousel?.cycle();
   }
 
   togglePaused() {

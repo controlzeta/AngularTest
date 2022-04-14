@@ -10,7 +10,7 @@
           alt="spanish"
           class="language"
           [ngbTooltip]="'Español'"
-          [ngClass]="{ active: language == 'Spanish' }"
+          [ngClass]="{ active: language === 'Spanish' }"
         />
       </div>
       <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: left">
@@ -20,7 +20,7 @@
           alt="english"
           class="language"
           [ngbTooltip]="'English'"
-          [ngClass]="{ active: language == 'English' }"
+          [ngClass]="{ active: language === 'English' }"
         />
       </div>
     </div>
@@ -94,13 +94,13 @@
             class="col-md-3 col-sm-4 col-xs-4"
           >
             <div [ngbTooltip]="t.alt">
-              <a *ngIf="t.href != null" href="{{ t.href }}" target="_blank">
+              <a *ngIf="t.href !== null" href="{{ t.href }}" target="_blank">
                 <img src="{{ t.src }}" alt="{{ t.alt }}" class="stack" />
               </a>
             </div>
             <div [ngbTooltip]="t.alt">
               <img
-                *ngIf="t.href == null; or: t.href == ''"
+                *ngIf="t.href === null; or: t.href === ''"
                 src="{{ t.src }}"
                 alt="{{ t.alt }}"
                 class="stack"
@@ -119,7 +119,7 @@
               <ul class="timeline">
                 <li
                   *ngFor="let t of info.projects; index as i"
-                  [ngClass]="{ 'timeline-inverted': (i + 1) % 2 == 0 }"
+                  [ngClass]="{ 'timeline-inverted': (i + 1) % 2 === 0 }"
                 >
                   <div class="timeline-image">
                     <img
@@ -209,7 +209,7 @@
             </tbody>
           </table>
           <ul style="display: block">
-            <li *ngIf="technologies.length == 0">
+            <li *ngIf="technologies.length === 0">
               Ya no sabes ninguna tecnología
             </li>
             <li *ngFor="let t of technologies; index as i">
