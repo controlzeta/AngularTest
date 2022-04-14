@@ -10,7 +10,8 @@ import { StackComponent } from './components/stack/stack.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReversePipe } from './pipes/reverse.pipe';
-import { TimeagoPipe } from './pipes/timeago.pipe'
+import { TimeagoPipe } from './pipes/timeago.pipe';
+import { HighlightDirective } from './directives/highlight.directive'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TimeagoPipe } from './pipes/timeago.pipe'
     StackComponent,
     CarouselComponent,
     ReversePipe,
-    TimeagoPipe
+    TimeagoPipe,
+    HighlightDirective
   ],
   exports: [CarouselComponent],
   imports: [
