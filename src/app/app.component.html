@@ -136,6 +136,9 @@
                       <h4 class="subheading">
                         {{ t.consultant }} | {{ t.startDate }} - {{ t.endDate }}
                       </h4>
+                      <h5>
+                        {{  t.dates[0].startDate | timeago }}
+                      </h5>
                     </div>
                     <div class="timeline-body">
                       <p class="text-muted abstract">
@@ -261,7 +264,7 @@
             <h3>{{ c.nombre }}</h3>
             <div class="testimonio">
               <p>{{ c.testimonio }}</p>
-              <p>{{c.testimonio | reverse}}</p>
+              <!-- <p>{{c.testimonio | reverse}}</p> -->
             </div>
             <img src="{{ c.imagen }}" style="width: 100px; height: auto" />
           </div>
@@ -269,7 +272,7 @@
       </div>
     </div>
     <div class="footer">
-      <p class="text-center">{{ charge }} | {{ name }} {{ year }}</p>
+      <a href="https://controlzetacv.firebaseapp.com/" target="_blank"><p class="text-center">{{ charge }} | {{ name }} {{ year }}</p></a>
     </div>
     <!-- </form> -->
 

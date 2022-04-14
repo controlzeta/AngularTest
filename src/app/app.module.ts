@@ -9,7 +9,8 @@ import { ImgComponent } from './components/img/img.component';
 import { StackComponent } from './components/stack/stack.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReversePipe } from './pipes/reverse.pipe'
+import { ReversePipe } from './pipes/reverse.pipe';
+import { TimeagoPipe } from './pipes/timeago.pipe'
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ReversePipe } from './pipes/reverse.pipe'
     ImgComponent,
     StackComponent,
     CarouselComponent,
-    ReversePipe
+    ReversePipe,
+    TimeagoPipe
   ],
   exports: [CarouselComponent],
   imports: [
