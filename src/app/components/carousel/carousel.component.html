@@ -1,0 +1,37 @@
+<div class="row">
+<ngb-carousel #carousel [interval]="8000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+      <div class="carousel-caption" style="z-index: 30000;">
+        <h3>{{img.charge}}</h3>
+        <h5>{{img.abstract}}</h5>
+      </div>
+      <a (click)="projectClick(img)" target="_blank" rel="nofollow noopener noreferrer">
+        <div class="picsum-img-wrapper">
+          <img [src]="img.projectImg" [alt]="img.abstract" style="width: 100%; height:100%; max-height:60em; filter:brightness(55%);">
+        </div>
+      </a>
+    </ng-template>
+  </ngb-carousel>
+</div>
+  <!-- <hr>
+  
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="pauseOnHover" [(ngModel)]="pauseOnHover">
+    <label class="form-check-label" for="pauseOnHover">Pause on hover</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="pauseOnFocus" [(ngModel)]="pauseOnFocus">
+    <label class="form-check-label" for="pauseOnFocus">Pause on focus</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="unpauseOnArrow" [(ngModel)]="unpauseOnArrow">
+    <label class="form-check-label" for="unpauseOnArrow">Unpause when clicking on arrows</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="pauseOnIndicator" [(ngModel)]="pauseOnIndicator">
+    <label class="form-check-label" for="pauseOnIndicator">Pause when clicking on navigation indicator</label>
+  </div>
+  <button type="button" (click)="togglePaused()" class="btn btn-outline-dark btn-sm">
+    {{paused ? 'Cycle' : 'Pause' }}
+  </button>
+   -->
