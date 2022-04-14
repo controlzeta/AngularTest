@@ -188,8 +188,8 @@
             </div>
           </div>
         </div>
-        <div *ngIf="technologies" style="display: none;">
-          <h2>Tecnologías</h2>
+        <div *ngIf="technologies" style="display: block;">
+          <h2>Tecnologías {{ counter }} </h2>
           <table class="table table-striped table-hover" id="tbTecnologias">
             <thead>
               <th></th>
@@ -265,7 +265,7 @@
             <div class="testimonio">
               <p>{{ c.testimonio }}</p>
               <!-- <p>{{c.testimonio | reverse}}</p> -->
-              <p appHighlight > {{c.testimonio }}</p>
+              <!-- <p appHighlight > {{c.testimonio }}</p> -->
             </div>
             <img src="{{ c.imagen }}" style="width: 100px; height: auto" />
           </div>

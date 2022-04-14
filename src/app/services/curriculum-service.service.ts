@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import {technologiesModel} from '../../app/models/technologiesModel.model'
+import { technologiesModel } from '../../app/models/technologiesModel.model'
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurriculumServiceService {
 
-  technologies: Array<technologiesModel> = [
+  private technologies: Array<technologiesModel> = [
     {
       ramo: 'Programación',
       nivel: 'Avanzado',
@@ -55,25 +56,31 @@ export class CurriculumServiceService {
     },
   ];
 
-  constructor( private http : HttpClient  ) {
-   }
+  private myTechs = new BehaviorSubject<technologiesModel[]>([]);
 
-  ngOnInit() {}
+  myTechs$ = this.myTechs.asObservable();
 
-  getTechnologies(){
+  constructor(private http: HttpClient) {
+  }
+
+  ngOnInit() { }
+
+  getTechnologies() {
     return this.technologies;
   }
 
-  addTech(newTech : technologiesModel) {
+  addTech(newTech: technologiesModel) {
     // this.technologies.push( this.newTech );
-    this.technologies.push( newTech);
+    this.technologies.push(newTech);
+    this.myTechs.next(this.technologies);
   }
 
   deleteTech(index: number) {
     this.technologies.splice(index, 1);
+    this.myTechs.next(this.technologies);
   }
 
-  getAllProducts(){
+  getAllProducts() {
     return this.http.get('https://fakestoreapi.com/products');
   }
 

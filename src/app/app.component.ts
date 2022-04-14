@@ -910,6 +910,7 @@ export class AppComponent implements OnInit {
   progressBar = 1;
   show = false;
   paramsObject: any = null;
+  counter = 0;
   // Event Binding
   ngOnInit() : void {
     this.route.queryParams
@@ -919,6 +920,9 @@ export class AppComponent implements OnInit {
       );
     this.numberOfProjects = this.info.languages[0].Spanish.projects.length;
     this.changeLanguage(this.language);
+    this.curriculumServ.myTechs$.subscribe(products => {
+      this.counter = products.length;
+    } );
     this.curriculumServ.getAllProducts().subscribe(data => {
       return console.log(data);
     });
