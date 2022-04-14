@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { technologiesModel } from './models/technologiesModel.model';
@@ -6,20 +6,24 @@ import { imagesModel } from './models/imagesModel.model';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { CurriculumServiceService } from './services/curriculum-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [NgbModalConfig, NgbModal],
+  providers: [NgbModalConfig, NgbModal, NgbCarousel],
 })
+
 export class AppComponent implements OnInit {
   constructor(
     private tileService: Title,
     config: NgbModalConfig,
     private modalService: NgbModal,
     private route: ActivatedRoute,
-    private progBar: NgbProgressbarConfig
+    private progBar: NgbProgressbarConfig, 
+    private curriculumServ: CurriculumServiceService
   ) {
     tileService.setTitle(this.charge + ' | ' + this.name);
     config.backdrop = 'static';
@@ -29,6 +33,7 @@ export class AppComponent implements OnInit {
     progBar.animated = true;
     progBar.type = 'success';
     progBar.height = '20px';
+    this.technologies = curriculumServ.getTechnologies();
   }
 
   imgParent = 'https://pakoarroyo.controlzeta.com.mx/img/github-jedi-logo.jpg';
@@ -895,53 +900,7 @@ export class AppComponent implements OnInit {
     { src: '../assets/img/scrum-logo.png', alt: 'Scrum Fundamentals', width: '100%' },
   ];
 
-  technologies: Array<technologiesModel> = [
-    {
-      ramo: 'Programación',
-      nivel: 'Avanzado',
-      utilerias: 'C#, ASP, ASP.Net, Visual Basic, Html5',
-    },
-    {
-      ramo: 'Bases de Datos',
-      nivel: 'Avanzado',
-      utilerias: 'SQL Server 2014, Oracle 11g, Postgres, MySQL',
-    },
-    {
-      ramo: 'IDE',
-      nivel: 'Avanzado',
-      utilerias: 'Visual Studio 2019 - Visual Studio 2012, Visual Studio Code',
-    },
-    { ramo: 'Programación', nivel: 'Medio', utilerias: 'PHP' },
-    { ramo: 'Lenguajes de Modelado', nivel: 'Medio', utilerias: 'UML' },
-    {
-      ramo: 'Patrones de Diseño',
-      nivel: 'Avanzado',
-      utilerias: 'MVC, MVP, N Tier',
-    },
-    { ramo: 'Metodologías', nivel: 'Medio', utilerias: 'SCRUM, MAAGTIC, CMMI' },
-    {
-      ramo: 'CMS, LCMS y eCommerce',
-      nivel: 'Avanzado',
-      utilerias: 'Wordpress, Joomla, Moodle, Magento',
-    },
-    {
-      ramo: 'Diseño Web',
-      nivel: 'Avanzado',
-      utilerias: 'Bootstrap, Adobe Photoshop, Dreamweaver',
-    },
-    {
-      ramo: 'Programación',
-      nivel: 'Principiante',
-      utilerias: 'Xamarin, NodeJS, Python, React JS',
-    },
-    { ramo: 'IDE', nivel: 'Principiante', utilerias: 'Eclipse, NetBeans' },
-    { ramo: 'CMS', nivel: 'Principiante', utilerias: 'Drupal' },
-    {
-      ramo: 'SEO en Google',
-      nivel: 'Avanzado',
-      utilerias: 'Analytics, Google My Business',
-    },
-  ];
+  technologies: Array<technologiesModel> = [];
 
   register = { name: '', email: '', password: '' };
 
@@ -952,7 +911,7 @@ export class AppComponent implements OnInit {
   show = false;
   paramsObject: any = null;
   // Event Binding
-  ngOnInit() {
+  ngOnInit() : void {
     this.route.queryParams
       .subscribe(params => {
         this.language = params['language'];
@@ -960,6 +919,9 @@ export class AppComponent implements OnInit {
       );
     this.numberOfProjects = this.info.languages[0].Spanish.projects.length;
     this.changeLanguage(this.language);
+    this.curriculumServ.getAllProducts().subscribe(data => {
+      return console.log(data);
+    });
   }
 
 
@@ -987,13 +949,12 @@ export class AppComponent implements OnInit {
   }
 
   addTech() {
-    // this.technologies.push( this.newTech );
-    this.technologies.push({ utilerias: this.newTech });
+    this.curriculumServ.addTech({ utilerias: this.newTech })
     this.newTech = '';
   }
 
   deleteTech(index: number) {
-    this.technologies.splice(index, 1);
+    this.curriculumServ.deleteTech(index);
   }
 
   onRegister() {
@@ -1067,3 +1028,4 @@ export class AppComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 }
+

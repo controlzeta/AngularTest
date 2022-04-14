@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <!-- <form> -->
   <div>
-    <div class="row">
+    <div class="row">     
       <div class="col-9 col-md-8 col-sm-8 col-xs-7"></div>
       <div class="col-1 col-md-2 col-sm-2 col-xs-2" style="text-align: right">
         <img
@@ -39,7 +39,7 @@
         src="{{ imageSrc }}"
         class="card-img rounded mx-auto d-block"
         [ngbTooltip]="name + ' | ' + charge"
-        alt="{{ name }}"
+        alt="{{ name }}"ng 
       /> -->
       <h1 class="text-center">{{ name }}</h1>
       <h2 class="text-center">{{ charge }}</h2>
@@ -86,7 +86,7 @@
       </div>
       <div id="Courses">
         <div class="row">
-          <h2 class="text-center">Courses And Certifications</h2>
+          <h2 class="text-center">{{this.info.coursesHeader}}</h2>
         </div>
         <div class="row">
           <div
@@ -185,7 +185,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="technologies" style="display: none">
+        <div *ngIf="technologies" style="display: none;">
           <h2>Tecnologías</h2>
           <table class="table table-striped table-hover" id="tbTecnologias">
             <thead>
@@ -205,7 +205,7 @@
               </tr>
             </tbody>
           </table>
-          <ul style="display: none">
+          <ul style="display: block">
             <li *ngIf="technologies.length == 0">
               Ya no sabes ninguna tecnología
             </li>
@@ -227,10 +227,12 @@
           />
         </div>
         <div id="Projects" class="col-12">
+          
           <h2>{{this.info.projectHeader}}</h2>
           <div class="row">
+            <app-carousel (clickOutput)="open($event,content)" [images]="getItemsStarred()" ></app-carousel>
             <div
-              *ngFor="let t of getItemsStarred(); index as i"
+              *ngFor="let t of getItemsStarred(); index as i" style="display: none;"
               class="col-4 col-md-4 col-sm-4 col-xs-4"
             >
               <img
@@ -259,6 +261,7 @@
             <h3>{{ c.nombre }}</h3>
             <div class="testimonio">
               <p>{{ c.testimonio }}</p>
+              <p>{{c.testimonio | reverse}}</p>
             </div>
             <img src="{{ c.imagen }}" style="width: 100px; height: auto" />
           </div>
