@@ -13,7 +13,7 @@ export class CarouselComponent implements OnInit {
 
   @Input() images:any;
   @Output() clickOutput = new EventEmitter<any>();
-  
+
   paused = false;
   unpauseOnArrow = false;
   pauseOnIndicator = false;
@@ -22,7 +22,7 @@ export class CarouselComponent implements OnInit {
   showNavigationArrows = true;
   showNavigationIndicators = true;
   constructor() {
-    
+
    }
 
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel | undefined;
@@ -51,7 +51,7 @@ export class CarouselComponent implements OnInit {
   }
 
   projectClick($event: any) {
-    this.loaded.emit($event);
+    //this.loaded.emit($event);
     console.log('Project Click: ',$event)
   }
 
